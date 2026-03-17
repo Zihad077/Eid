@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- অ্যান্ড্রয়েড স্ট্যাটাস বারের রঙের জন্য -->
-    <meta name="theme-color" content="#0f111a">
+    <meta name="theme-color" content="#061a10">
     <title>ঈদ মোবারক - সালামী কালেকশন</title>
-    <!-- আধুনিক অ্যান্ড্রয়েড ফন্ট -->
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- প্রিমিয়াম ফন্ট -->
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     
     <style>
-        /* বেসিক রিসেট ও অ্যাপ-লাইক বডি */
+        /* বেসিক রিসেট ও স্ক্রল বন্ধ করা (এক স্ক্রিনে ফিট) */
         * {
             margin: 0;
             padding: 0;
@@ -19,352 +18,279 @@
             -webkit-tap-highlight-color: transparent;
         }
         body {
-            background-color: #0f111a;
+            background-color: #061a10; /* গাঢ় সবুজ ব্যাকগ্রাউন্ড */
             color: #ffffff;
-            font-family: 'Hind Siliguri', system-ui, -apple-system, sans-serif;
-            overflow-x: hidden;
+            font-family: 'Anek Bangla', sans-serif;
+            /* স্ক্রল বন্ধ করার জন্য */
+            overflow: hidden; 
+            height: 100dvh;
+            width: 100vw;
             display: flex;
             justify-content: center;
-        }
-        
-        /* মোবাইল স্ক্রিন কন্টেইনার */
-        .app-container {
-            width: 100%;
-            max-width: 480px;
-            min-height: 100vh;
-            background-color: #0f111a;
-            position: relative;
-            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+            align-items: center;
         }
 
-        /* প্রিমিয়াম এজ-টু-এজ হেডার (বক্স ছাড়া) */
-        .hero-header {
-            position: relative;
+        /* কার্ডের মূল কন্টেইনার (বর্ডার ও ডিজাইন) */
+        .card-wrapper {
             width: 100%;
-            height: 320px;
-            overflow: hidden;
-            background: #1a1a2e;
-        }
-        .hero-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 150px;
-            background: linear-gradient(to top, #0f111a 0%, transparent 100%);
-            z-index: 2;
-        }
-        /* হাই-কোয়ালিটি ব্যাকগ্রাউন্ড ইমেজ + স্লো জুম (ভিডিওর মতো) */
-        .hero-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            animation: kenBurns 15s infinite alternate ease-in-out;
-            opacity: 0.8;
-        }
-        @keyframes kenBurns {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.15); }
-        }
-        
-        /* ফ্লোটিং ম্যাসেজ বাবল (টেলিগ্রাম স্টাইল) */
-        .content-area {
+            max-width: 450px;
+            height: 100dvh;
+            background: radial-gradient(circle at top center, #0a2d1c 0%, #04120b 100%);
             position: relative;
-            z-index: 5;
-            padding: 0 20px 100px 20px;
-            margin-top: -60px;
-        }
-        .greeting-title {
-            font-size: 34px;
-            font-weight: 700;
-            color: #ffde59;
-            margin-bottom: 5px;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-        .sender-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 16px;
-            color: #a78bfa;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-        .sender-name {
-            color: #00ffcc;
-            font-weight: 700;
-            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
         }
 
-        /* ডাইনামিক ওয়ালেট কার্ড (নেক্সট লেভেল) */
-        .wallet-card {
-            background: #1e2235;
-            border-radius: 24px;
-            padding: 25px;
-            margin-top: 10px;
+        /* সোনালী বর্ডার ফ্রেম */
+        .gold-border-frame {
+            width: 100%;
+            height: calc(100% - 80px); /* নিচে বাটনের জন্য জায়গা রাখা হয়েছে */
+            margin-bottom: 70px;
+            border: 2px solid #d4af37;
+            border-radius: 12px;
             position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: all 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 2vh 15px;
+            box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.1);
         }
-        /* গ্লোয়িং ইফেক্ট যা পেমেন্ট মেথড অনুযায়ী বদলাবে */
-        .wallet-card::before {
+
+        /* ফ্রেমের কোণার ডিজাইন (CSS দিয়ে) */
+        .gold-border-frame::before, .gold-border-frame::after {
             content: '';
             position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle, var(--card-glow, rgba(255,255,255,0.05)) 0%, transparent 60%);
-            opacity: 0.5;
-            pointer-events: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d4af37;
+            border-radius: 50%;
         }
-        .wallet-text {
-            font-size: 16px;
-            color: #e2e8f0;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
+        .gold-border-frame::before { top: -10px; left: -10px; background: #061a10; }
+        .gold-border-frame::after { bottom: -10px; right: -10px; background: #061a10; }
+
+        /* টপ ডেকোরেশন (চাঁদ ও তারা) */
+        .top-decor {
+            font-size: 6vh;
+            color: #fce883;
+            text-shadow: 0 0 20px rgba(252, 232, 131, 0.6);
+            line-height: 1;
+            margin-top: -1vh;
         }
-        .wallet-method {
-            font-size: 14px;
-            color: rgba(255,255,255,0.6);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-            position: relative;
-            z-index: 2;
+
+        /* টেক্সট স্টাইলিং (ছবির মতো) */
+        .eid-title {
+            font-size: 5.5vh;
+            font-weight: 800;
+            color: #d4af37; /* সোনালী কালার */
+            text-shadow: 2px 2px 0px #000, 0 0 15px rgba(212, 175, 55, 0.5);
+            margin: 0;
+            line-height: 1.1;
         }
-        .wallet-number {
-            font-size: 32px;
-            font-weight: 700;
+        
+        .salam-text {
+            font-size: 3vh;
+            font-weight: 600;
             color: #ffffff;
-            letter-spacing: 2px;
-            position: relative;
-            z-index: 2;
+            margin: 1vh 0;
         }
 
-        /* বটম ফিক্সড বাটন (অ্যান্ড্রয়েড নেটিভ লুক) */
-        .fab-container {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 440px;
-            padding: 0 20px;
-            z-index: 10;
-        }
-        .btn-primary {
-            background: #ffde59;
-            color: #0f111a;
-            width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: 16px;
-            font-size: 18px;
-            font-weight: 700;
-            font-family: inherit;
-            box-shadow: 0 8px 20px rgba(255, 222, 89, 0.3);
-            cursor: pointer;
-            transition: transform 0.2s, background 0.2s;
-        }
-        .btn-primary:active {
-            transform: scale(0.96);
-            background: #e6c547;
+        .sender-label {
+            font-size: 2.5vh;
+            color: #d4af37;
+            font-weight: 600;
+            margin-top: 1vh;
         }
 
-        /* বটম শিট (অ্যান্ড্রয়েড স্লাইড আপ মেনু) */
-        .bottom-sheet-overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(4px);
-            z-index: 99;
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.3s ease;
-        }
-        .bottom-sheet {
-            position: fixed;
-            bottom: -100%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 480px;
-            background: #1c1b22;
-            border-radius: 28px 28px 0 0;
-            padding: 30px 24px 40px 24px;
-            z-index: 100;
-            box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
-            transition: bottom 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-        .bottom-sheet.active {
-            bottom: 0;
-        }
-        .bottom-sheet-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        .drag-handle {
-            width: 40px;
-            height: 4px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 10px;
-            margin: 0 auto 20px auto;
-        }
-
-        /* ইনপুট ফিল্ড স্টাইলিং (ম্যাটেরিয়াল ডিজাইন) */
-        .input-group {
-            margin-bottom: 16px;
-            position: relative;
-        }
-        .input-field {
-            width: 100%;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: #fff;
-            padding: 16px 20px;
-            border-radius: 16px;
-            font-size: 16px;
-            font-family: inherit;
-            outline: none;
-            transition: 0.3s;
-        }
-        .input-field:focus {
-            border-color: #a78bfa;
-            background: rgba(167, 139, 250, 0.05);
-        }
-        .sheet-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #fff;
+        /* আপনার নাম (বড় সোনালী অক্ষরে) */
+        .sender-name {
+            font-size: 4.5vh;
+            font-weight: 800;
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            margin: 0;
+            padding: 0 10px;
+            line-height: 1.2;
             text-align: center;
         }
 
-        /* তৈরি করা লিংকের সেকশন */
-        .result-box {
-            display: none;
-            margin-top: 20px;
-            animation: fadeIn 0.4s;
+        .message-text {
+            font-size: 2.4vh;
+            color: #e2e8f0;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.5;
+            margin: 1vh 0;
         }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        
-        .link-textarea {
-            width: 100%;
-            height: 80px;
-            background: #0f111a;
-            border: 1px dashed #a78bfa;
-            color: #a78bfa;
-            padding: 12px;
-            border-radius: 12px;
-            resize: none;
-            font-family: monospace;
-            font-size: 14px;
-            margin-bottom: 15px;
+
+        /* পেমেন্ট সেকশন */
+        .payment-label {
+            font-size: 2.2vh;
+            color: #d4af37;
+            font-weight: 600;
+            margin-bottom: 5px;
         }
-        .btn-secondary {
-            background: rgba(255,255,255,0.1);
+
+        .payment-badge {
+            display: inline-block;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 2vh;
+            font-weight: 800;
             color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5vh;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* নাম্বার বক্স (সাদা ব্যাকগ্রাউন্ড, সবুজ লেখা) */
+        .number-box {
+            background-color: #ffffff;
+            color: #061a10;
+            font-size: 4.5vh;
+            font-weight: 800;
+            padding: 1vh 4vh;
+            border-radius: 12px;
+            letter-spacing: 2px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.4);
+            border: 2px solid #d4af37;
+            margin-bottom: 2vh;
+        }
+
+        /* সবার নিচের ফিক্সড বাটন */
+        .fixed-bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 450px;
+            padding: 15px 20px;
+            background: rgba(6, 26, 16, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 50;
+        }
+
+        .btn-create {
+            background: linear-gradient(to right, #d4af37, #fcf6ba, #d4af37);
+            color: #061a10;
             width: 100%;
             padding: 14px;
             border: none;
             border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 10px;
+            font-size: 2.2vh;
+            font-weight: 800;
+            font-family: inherit;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
             cursor: pointer;
+            transition: 0.2s;
         }
-        .btn-success {
-            background: #10b981;
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        .btn-create:active { transform: scale(0.96); }
+
+        /* বটম শিট ফর্ম (আগের মতোই সুন্দর) */
+        .bottom-sheet-overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.7); backdrop-filter: blur(5px);
+            z-index: 99; opacity: 0; visibility: hidden; transition: 0.3s;
         }
-        .hidden { display: none !important; }
+        .bottom-sheet {
+            position: fixed; bottom: -100%; left: 50%; transform: translateX(-50%);
+            width: 100%; max-width: 450px; background: #0a2d1c;
+            border-radius: 28px 28px 0 0; padding: 25px 20px 40px;
+            z-index: 100; border-top: 2px solid #d4af37;
+            transition: bottom 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .bottom-sheet.active { bottom: 0; }
+        .bottom-sheet-overlay.active { opacity: 1; visibility: visible; }
+        
+        .drag-handle { width: 40px; height: 5px; background: #d4af37; border-radius: 10px; margin: 0 auto 20px; }
+        
+        .input-field {
+            width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(212, 175, 55, 0.4);
+            color: #fff; padding: 14px 18px; border-radius: 12px; font-size: 16px; font-family: inherit;
+            outline: none; margin-bottom: 15px; box-sizing: border-box;
+        }
+        .input-field:focus { border-color: #d4af37; background: rgba(212, 175, 55, 0.1); }
+        
+        .result-box { display: none; margin-top: 15px; text-align: center; }
+        .link-textarea {
+            width: 100%; height: 80px; background: #04120b; border: 1px dashed #d4af37;
+            color: #d4af37; padding: 12px; border-radius: 12px; resize: none; margin-bottom: 15px; box-sizing: border-box;
+        }
+        .btn-action {
+            background: #d4af37; color: #061a10; width: 100%; padding: 12px; border: none;
+            border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
 
-    <div class="app-container">
+    <div class="card-wrapper">
         
-        <!-- বর্ডারহীন প্রিমিয়াম এজ-টু-এজ হেডার -->
-        <header class="hero-header">
-            <!-- কোনো GIF নেই, হাই-কোয়ালিটি আনস্প্ল্যাশ ইমেজ যা ভিডিওর মতো জুম হবে -->
-            <img src="https://images.unsplash.com/photo-1594145887247-f4e910e53a25?auto=format&fit=crop&q=80&w=600" alt="Eid Background" class="hero-img">
-        </header>
-
-        <!-- মূল কন্টেন্ট -->
-        <main class="content-area">
+        <!-- সোনালী বর্ডার ও ডিজাইন করা ফ্রেম -->
+        <div class="gold-border-frame">
             
-            <!-- যাকে পাঠানো হবে সে এই অংশটি দেখবে -->
-            <div id="greetingView" class="hidden">
-                <h1 class="greeting-title">ঈদ মোবারক! 🌙</h1>
-                <div class="sender-badge">
-                    শুভেচ্ছাান্তে: <span class="sender-name" id="displaySenderName">নাম</span>
-                </div>
-                
-                <!-- ডাইনামিক ওয়ালেট কার্ড -->
-                <div class="wallet-card" id="salamiCard">
-                    <p class="wallet-text">আসসালামুয়ালাইকুম 🙏<br>এই ঈদ উপলক্ষে আমাকে সালামি পাঠান এবং ঈদের আনন্দ ভাগ করে নিন! 💸🥰</p>
-                    
-                    <div id="paymentInfo">
-                        <p class="wallet-method" id="salamiMethod">পেমেন্ট মাধ্যম</p>
-                        <p class="wallet-number" id="salamiNumber">01XXXXXXXXX</p>
-                    </div>
-                </div>
+            <!-- টপ ডেকোরেশন -->
+            <div class="top-decor">✨ 🌙 ✨</div>
+
+            <!-- মূল টেক্সট -->
+            <h1 class="eid-title">ঈদ মোবারক!</h1>
+            <p class="salam-text">আসসালামু আলাইকুম 🤲</p>
+            
+            <p class="sender-label">শুভেচ্ছান্তে:</p>
+            <h2 class="sender-name" id="displaySenderName">[আপনার নাম]</h2>
+
+            <p class="message-text">এই ঈদ উপলক্ষে আমাকে<br>সালামি পাঠান এবং ঈদের আনন্দ<br>ভাগ করে নিন! 💸🥰</p>
+
+            <!-- পেমেন্ট ইনফরমেশন -->
+            <div style="text-align: center; width: 100%;">
+                <p class="payment-label">পেমেন্ট মাধ্যম</p>
+                <div class="payment-badge" id="displayMethod" style="background: #e2136e;">বিকাশ (bKash)</div>
+                <div class="number-box" id="displayNumber">01XXXXXXXXX</div>
             </div>
 
-            <!-- ডিফল্ট ওয়েলকাম পেজ (যদি লিংক খালি থাকে) -->
-            <div id="welcomeView">
-                <h1 class="greeting-title">ঈদ সালামী কালেকশন</h1>
-                <p style="color: #a0aec0; font-size: 16px; margin-top: 10px;">অ্যান্ড্রয়েড নেটিভ স্টাইলের ডিজিটাল কার্ড তৈরি করে বন্ধুদের চমকে দিন এবং সালামী সংগ্রহ করুন।</p>
-            </div>
-            
-        </main>
-
-        <!-- ফ্লোটিং অ্যাকশন বাটন -->
-        <div class="fab-container">
-            <button class="btn-primary" onclick="openBottomSheet()">✨ নিজের নামে কার্ড তৈরি করুন</button>
         </div>
 
-        <!-- অ্যান্ড্রয়েড স্টাইল বটম শিট (Bottom Sheet) -->
-        <div class="bottom-sheet-overlay" id="sheetOverlay" onclick="closeBottomSheet()"></div>
-        <div class="bottom-sheet" id="bottomSheet">
-            <div class="drag-handle"></div>
-            <h2 class="sheet-title">কার্ড তৈরি করুন</h2>
-            
-            <div id="formSection">
-                <div class="input-group">
-                    <input type="text" id="nameInput" class="input-field" placeholder="আপনার নাম লিখুন" required>
-                </div>
-                
-                <div class="input-group">
-                    <select id="methodInput" class="input-field">
-                        <option value="bKash">বিকাশ (bKash)</option>
-                        <option value="Nagad">নগদ (Nagad)</option>
-                        <option value="Rocket">রকেট (Rocket)</option>
-                        <option value="Upay">উপায় (Upay)</option>
-                    </select>
-                </div>
-                
-                <div class="input-group">
-                    <input type="number" id="numberInput" class="input-field" placeholder="আপনার মোবাইল ব্যাংকিং নাম্বার" required>
-                </div>
-                
-                <button class="btn-primary" onclick="generateLink()" style="margin-top: 10px;">লিংক তৈরি করুন 🚀</button>
-            </div>
-
-            <!-- লিংক তৈরির পর এই সেকশন দেখাবে -->
-            <div id="resultSection" class="result-box">
-                <p style="color: #10b981; font-weight: 600; margin-bottom: 10px; text-align: center;">🎉 আপনার ডিজিটাল কার্ড প্রস্তুত!</p>
-                <textarea id="generatedLink" class="link-textarea" readonly></textarea>
-                
-                <button class="btn-secondary btn-success" onclick="copyLink()">লিংক কপি করুন 📋</button>
-                <button class="btn-secondary" onclick="openLink()">ওপেন করে দেখুন 👁️</button>
-            </div>
+        <!-- এক স্ক্রিনে দেখার জন্য সবার নিচে ফিক্সড বাটন -->
+        <div class="fixed-bottom-bar">
+            <button class="btn-create" onclick="openBottomSheet()">নিজের জন্য তৈরি করুন</button>
         </div>
 
+    </div>
+
+    <!-- বটম শিট (কার্ড তৈরি করার ফর্ম) -->
+    <div class="bottom-sheet-overlay" id="sheetOverlay" onclick="closeBottomSheet()"></div>
+    <div class="bottom-sheet" id="bottomSheet">
+        <div class="drag-handle"></div>
+        <h2 style="color: #d4af37; text-align: center; margin-bottom: 20px;">কার্ড তৈরি করুন</h2>
+        
+        <div id="formSection">
+            <input type="text" id="nameInput" class="input-field" placeholder="আপনার নাম লিখুন" required>
+            
+            <select id="methodInput" class="input-field">
+                <option value="bKash">বিকাশ (bKash)</option>
+                <option value="Nagad">নগদ (Nagad)</option>
+                <option value="Rocket">রকেট (Rocket)</option>
+                <option value="Upay">উপায় (Upay)</option>
+            </select>
+            
+            <input type="number" id="numberInput" class="input-field" placeholder="আপনার মোবাইল ব্যাংকিং নাম্বার" required>
+            
+            <button class="btn-action" onclick="generateLink()" style="background: #10b981; color:#fff;">লিংক তৈরি করুন 🚀</button>
+        </div>
+
+        <div id="resultSection" class="result-box">
+            <p style="color: #10b981; font-weight: 600; margin-bottom: 10px;">🎉 আপনার লিংক তৈরি হয়েছে!</p>
+            <textarea id="generatedLink" class="link-textarea" readonly></textarea>
+            
+            <button class="btn-action" onclick="copyLink()">লিংক কপি করুন 📋</button>
+            <button class="btn-action" style="background: transparent; border: 1px solid #d4af37; color: #d4af37;" onclick="openLink()">ওপেন করে দেখুন 👁️</button>
+        </div>
     </div>
 
     <script>
@@ -374,86 +300,56 @@
         const method = urlParams.get('method');
         const number = urlParams.get('number');
 
-        // কার্ডের ডাইনামিক কালার থিম সেট করা
-        function setWalletTheme(methodName) {
-            const card = document.getElementById('salamiCard');
-            let methodText = "";
-            
-            // পেমেন্ট মেথড অনুযায়ী কার্ডের গ্লোয়িং কালার পরিবর্তন (নেক্সট লেভেল ফিচার)
+        // পেমেন্ট মাধ্যম অনুযায়ী কালার ব্যাজ সেট করা
+        function setBadge(methodName) {
+            const badge = document.getElementById('displayMethod');
             if(methodName === 'bKash') {
-                card.style.setProperty('--card-glow', '#e2136e');
-                methodText = "বিকাশ (bKash)";
+                badge.style.background = '#e2136e'; badge.innerText = 'বিকাশ (bKash)';
             } else if(methodName === 'Nagad') {
-                card.style.setProperty('--card-glow', '#f7931e');
-                methodText = "নগদ (Nagad)";
+                badge.style.background = 'linear-gradient(to right, #ed1c24, #f7931e)'; badge.innerText = 'নগদ (Nagad)';
             } else if(methodName === 'Rocket') {
-                card.style.setProperty('--card-glow', '#8c1590');
-                methodText = "রকেট (Rocket)";
+                badge.style.background = '#8c1590'; badge.innerText = 'রকেট (Rocket)';
             } else if(methodName === 'Upay') {
-                card.style.setProperty('--card-glow', '#0067b2');
-                methodText = "উপায় (Upay)";
+                badge.style.background = '#0067b2'; badge.innerText = 'উপায় (Upay)';
             } else {
-                card.style.setProperty('--card-glow', '#a78bfa');
-                methodText = methodName;
+                badge.style.background = '#d4af37'; badge.innerText = methodName;
             }
-            return methodText;
         }
 
-        // যদি URL-এ ডেটা থাকে, তবে কার্ডটি দেখাবে
-        if (name) {
-            document.getElementById('welcomeView').classList.add('hidden');
-            document.getElementById('greetingView').classList.remove('hidden');
-            
+        // যদি URL-এ ডেটা থাকে, তবে নাম ও নাম্বার আপডেট হবে
+        if (name && number) {
             document.getElementById('displaySenderName').innerText = name;
-            
-            if (method && number) {
-                const formattedMethod = setWalletTheme(method);
-                document.getElementById('salamiMethod').innerText = formattedMethod;
-                document.getElementById('salamiNumber').innerText = number;
-            } else {
-                document.getElementById('paymentInfo').classList.add('hidden');
-            }
+            document.getElementById('displayNumber').innerText = number;
+            if (method) setBadge(method);
 
-            // ম্যাজিক কনফেটি (কাগজের টুকরো ওড়ার ইফেক্ট)
+            // কনফেটি ফায়ারওয়ার্ক
             setTimeout(() => {
-                var duration = 2.5 * 1000;
-                var end = Date.now() + duration;
-                (function frame() {
-                    confetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: 0 }, colors:['#ffde59', '#a78bfa', '#00ffcc'] });
-                    confetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: 1 }, colors:['#ffde59', '#a78bfa', '#00ffcc'] });
-                    if (Date.now() < end) requestAnimationFrame(frame);
-                }());
+                confetti({ particleCount: 50, spread: 70, origin: { y: 0.6 }, colors:['#d4af37', '#fce883', '#ffffff'] });
             }, 500);
         }
 
-        // বটম শিট কন্ট্রোল (অ্যান্ড্রয়েড স্লাইড মেনু)
+        // ফর্ম স্লাইড-আপ কন্ট্রোল
         function openBottomSheet() {
             document.getElementById('sheetOverlay').classList.add('active');
             document.getElementById('bottomSheet').classList.add('active');
         }
-        
         function closeBottomSheet() {
             document.getElementById('sheetOverlay').classList.remove('active');
             document.getElementById('bottomSheet').classList.remove('active');
         }
 
-        // লিংক জেনারেট করা
+        // লিংক জেনারেট
         function generateLink() {
             const n = document.getElementById('nameInput').value.trim();
             const m = document.getElementById('methodInput').value;
             const num = document.getElementById('numberInput').value.trim();
             
-            if(!n || !num) { 
-                alert('অনুগ্রহ করে আপনার নাম এবং মোবাইল নাম্বার লিখুন!'); 
-                return; 
-            }
+            if(!n || !num) { alert('আপনার নাম এবং নাম্বার দিন!'); return; }
 
             const baseUrl = window.location.href.split('?')[0];
             const link = baseUrl + '?name=' + encodeURIComponent(n) + '&method=' + encodeURIComponent(m) + '&number=' + encodeURIComponent(num);
             
             document.getElementById('generatedLink').value = link;
-            
-            // ফর্ম লুকিয়ে রেজাল্ট দেখানো
             document.getElementById('formSection').style.display = 'none';
             document.getElementById('resultSection').style.display = 'block';
         }
@@ -464,19 +360,14 @@
             copyText.select();
             copyText.setSelectionRange(0, 99999);
             try {
-                navigator.clipboard.writeText(copyText.value).then(() => {
-                    alert('✅ লিংক কপি হয়েছে! এখন বন্ধুদের পাঠিয়ে দিন।');
-                });
+                navigator.clipboard.writeText(copyText.value).then(() => { alert('✅ লিংক কপি হয়েছে!'); });
             } catch (err) {
-                document.execCommand('copy');
-                alert('✅ লিংক কপি হয়েছে!');
+                document.execCommand('copy'); alert('✅ লিংক কপি হয়েছে!');
             }
         }
 
-        // লিংক ওপেন করা
         function openLink() {
-            const link = document.getElementById('generatedLink').value;
-            window.location.href = link; // একই ট্যাবে ওপেন হবে যাতে আসল অ্যাপের ফিল থাকে
+            window.location.href = document.getElementById('generatedLink').value;
         }
     </script>
 </body>
