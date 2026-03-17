@@ -2,12 +2,56 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <meta name="theme-color" content="#031208">
-    <title>ঈদ - সালামী</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0a1911">
     
-    <!-- প্রিমিয়াম ফন্ট -->
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- 🟢 Primary SEO Tags -->
+    <title>ঈদ সালামি কার্ড তৈরি করুন - Eid Salami Link Generator</title>
+    <meta name="description" content="বিকাশ, নগদ, রকেট বা উপায়ে ঈদ সালামি গ্রহণ করতে নিজের নামে একটি সুন্দর ডিজিটাল সালামি কার্ড তৈরি করুন এবং বন্ধুদের সাথে শেয়ার করে ঈদের আনন্দ ভাগ করে নিন!">
+    <meta name="keywords" content="Eid Salami, Salami Link Generator, bKash Salami, Eid Mubarak Salami Card, ঈদ সালামি, সালামি কার্ড তৈরি, Eid ul Fitr Salami, Salami link maker 2026">
+    <meta name="author" content="EidZ">
+    <meta name="robots" content="index, follow">
+    
+    <!-- 🟢 Canonical URL Setup -->
+    <link rel="canonical" href="https://eidz.vercel.app/">
+
+    <!-- 🟢 Open Graph / Facebook / WhatsApp / Messenger -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eidz.vercel.app/">
+    <meta property="og:title" content="ঈদ মোবারক! তোমার সালামির অপেক্ষায় আছি 🥺💸">
+    <meta property="og:description" content="ঈদের এই খুশির দিনে আমাকে সালামি দিয়ে আমার ঈদটাকে আরও রঙিন করে তোলো! লিংকে ক্লিক করে তুমিও নিজের জন্য কার্ড তৈরি করো।">
+    <meta property="og:image" content="https://i.postimg.cc/zXKX4GH6/Web-back.jpg">
+    <meta property="og:image:alt" content="Eid Salami Background Card">
+
+    <!-- 🟢 Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://eidz.vercel.app/">
+    <meta name="twitter:title" content="তোমার সালামির অপেক্ষায় আছি 🥺💸">
+    <meta name="twitter:description" content="এই ঈদে তোমার দেওয়া ছোট্ট উপহার আমার কাছে তোমার অনেক বড় ভালোবাসা ও আশীর্বাদ।">
+    <meta name="twitter:image" content="https://i.postimg.cc/zXKX4GH6/Web-back.jpg">
+
+    <!-- 🟢 Schema Markup (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Eid Salami Link Generator",
+      "alternateName": "ঈদ সালামি কার্ড মেকার",
+      "url": "https://eidz.vercel.app/",
+      "description": "Create a digital Eid Salami card with your name and payment details (bKash, Nagad, Rocket) to share with friends and family during Eid.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "inLanguage": "bn",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BDT"
+      }
+    }
+    </script>
+
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <!-- 🟢 Adsterra: Social Bar Integration -->
@@ -17,183 +61,219 @@
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
         body {
-            background: #031208;
+            background: url('https://i.postimg.cc/zXKX4GH6/Web-back.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: #ffffff;
             font-family: 'Anek Bangla', sans-serif;
-            overflow-y: auto; /* স্ক্রল চালু রাখা হয়েছে */
+            overflow-y: auto;
             min-height: 100vh;
             width: 100vw;
             display: flex;
             justify-content: center;
         }
 
-        /* মূল কন্টেইনার */
-        .card-wrapper {
-            width: 100%;
-            max-width: 450px;
-            background: radial-gradient(circle at top center, #0a331e 0%, #031208 100%);
-            display: flex;
-            flex-direction: column;
-            padding: 20px 15px 120px 15px;
-            position: relative;
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(3, 18, 8, 0.4);
+            z-index: 0;
         }
 
-        /* সোনালী বর্ডার ফ্রেম */
-        .gold-border-frame {
+        .main-container {
             width: 100%;
-            border: 2px solid rgba(212, 175, 55, 0.6);
-            border-radius: 20px;
+            max-width: 480px;
+            padding: 30px 20px 120px 20px;
+            position: relative;
+            z-index: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 30px 15px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(212, 175, 55, 0.15);
-            background: url('https://www.transparenttextures.com/patterns/stardust.png');
-            position: relative;
         }
 
-        .gold-border-frame::before, .gold-border-frame::after {
-            content: ''; position: absolute; width: 25px; height: 25px;
-            border: 2px solid #d4af37; border-radius: 50%;
-        }
-        .gold-border-frame::before { top: -12px; left: -12px; background: #031208; box-shadow: 0 0 10px #d4af37; }
-        .gold-border-frame::after { bottom: -12px; right: -12px; background: #031208; box-shadow: 0 0 10px #d4af37; }
-
-        .top-decor { font-size: 35px; color: #fce883; text-shadow: 0 0 20px rgba(252, 232, 131, 0.8); margin-bottom: 10px; }
-        
-        .eid-title {
-            font-size: 45px;
-            font-weight: 800;
-            color: #d4af37;
-            text-shadow: 2px 2px 0px #000, 0 0 20px rgba(212, 175, 55, 0.6);
-            text-align: center;
-        }
-        
-        .salam-text { font-size: 22px; font-weight: 600; color: #e2e8f0; margin-top: 5px; }
-        .sender-label { font-size: 18px; color: #d4af37; font-weight: 600; margin-top: 25px; }
-        
-        .sender-name {
-            font-size: 38px;
-            font-weight: 800;
-            background: linear-gradient(to bottom right, #fcf6ba, #bf953f, #fbf5b7, #aa771c);
-            -webkit-background-clip: text; color: transparent;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.6);
-            margin: 5px 0 20px 0;
-            text-align: center;
-        }
-
-        .message-text {
-            font-size: 18px;
-            color: #cbd5e1; font-weight: 600; text-align: center; line-height: 1.6;
-            background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; 
-            border: 1px dashed rgba(212, 175, 55, 0.3);
-            margin-bottom: 25px;
-        }
-
-        /* পেমেন্ট সেকশন */
-        .payment-label {
-            font-size: 20px; color: #fff2cd; font-weight: 700;
-            margin-bottom: 12px; text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
-        }
-        .payment-label::before, .payment-label::after { content: ' ♦ '; color: #d4af37; }
-
-        .payment-badge {
-            display: inline-block; padding: 8px 25px; border-radius: 50px;
-            font-size: 16px; font-weight: 800; color: #fff;
-            text-transform: uppercase; margin-bottom: 15px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.2);
-        }
-
-        .number-box {
-            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
-            color: #031208; font-size: 32px; font-weight: 800;
-            padding: 10px 25px; border-radius: 16px; letter-spacing: 2px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.6); border: 2px solid #d4af37;
-        }
-
-        /* 🟠 Adsterra Banner (300x250) Integration Area */
-        .ad-banner-slot {
+        .glass-card {
             width: 100%;
-            display: flex;
-            justify-content: center;
-            margin: 30px 0 10px 0;
-            min-height: 250px;
+            background: rgba(10, 25, 15, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 24px;
+            padding: 35px 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(212, 175, 55, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* ফিক্সড বটম বাটন */
-        .fixed-bottom-bar {
+        .glass-card::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 10%, transparent 60%);
+            transform: rotate(30deg); pointer-events: none;
+        }
+
+        .top-icon { font-size: 40px; margin-bottom: 10px; filter: drop-shadow(0 0 10px #d4af37); }
+        
+        .title {
+            font-size: 48px; font-weight: 800; color: #fce883;
+            text-shadow: 0 4px 15px rgba(212, 175, 55, 0.6);
+            line-height: 1.1; margin-bottom: 5px;
+        }
+
+        .subtitle { font-size: 20px; font-weight: 600; color: #e2e8f0; margin-bottom: 25px; }
+
+        .sender-box { margin: 20px 0; }
+        .sender-label { font-size: 16px; color: #cbd5e1; font-weight: 400; }
+        .sender-name {
+            font-size: 40px; font-weight: 800;
+            background: linear-gradient(135deg, #fff2cd, #d4af37, #fcf6ba);
+            -webkit-background-clip: text; color: transparent;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            line-height: 1.2;
+        }
+
+        /* 🟢 Updated Emotional Message Box */
+        .msg-text {
+            font-size: 17px; color: #f1f5f9; font-weight: 500; line-height: 1.6;
+            margin: 20px 0; padding: 18px 15px; border-radius: 12px;
+            background: rgba(0,0,0,0.4); border-left: 4px solid #d4af37;
+            text-align: justify; text-align-last: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .wallet-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 25px 20px;
+            margin-top: 25px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        .wallet-header {
+            display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;
+        }
+        
+        .method-badge {
+            padding: 6px 15px; border-radius: 8px; font-size: 16px; font-weight: 800; color: #fff;
+            letter-spacing: 1px; text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .wallet-label { font-size: 14px; color: #cbd5e1; }
+        
+        .wallet-number {
+            font-size: 32px; font-weight: 800; color: #fff; letter-spacing: 2px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5); font-family: monospace;
+        }
+
+        .ad-container { margin-top: 25px; display: flex; justify-content: center; }
+
+        .bottom-action-bar {
             position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
-            width: 100%; max-width: 450px; padding: 20px;
-            background: rgba(3, 18, 8, 0.9); backdrop-filter: blur(15px); z-index: 100;
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            width: 100%; max-width: 480px; padding: 20px; z-index: 100;
+            background: linear-gradient(to top, rgba(3,18,8,0.95) 40%, transparent);
         }
 
-        .btn-create {
-            background: linear-gradient(to right, #d4af37, #fff2cd, #d4af37);
-            color: #031208; width: 100%; padding: 16px; border: none; border-radius: 15px;
-            font-size: 18px; font-weight: 800; cursor: pointer;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.5);
+        .btn-main {
+            width: 100%; padding: 16px; border-radius: 16px; border: none;
+            background: linear-gradient(135deg, #d4af37, #fce883, #d4af37);
+            background-size: 200% 200%;
+            color: #031208; font-size: 20px; font-weight: 800; cursor: pointer;
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+            animation: gradientShift 3s ease infinite;
             text-transform: uppercase;
         }
 
-        /* ফর্ম শিট */
-        .bottom-sheet-overlay {
-            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .sheet-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(5px);
             z-index: 200; opacity: 0; visibility: hidden; transition: 0.3s;
         }
+        
         .bottom-sheet {
             position: fixed; bottom: -100%; left: 50%; transform: translateX(-50%);
-            width: 100%; max-width: 450px; background: #061a10;
-            border-radius: 30px 30px 0 0; padding: 30px 20px 40px;
-            z-index: 201; border-top: 2px solid #d4af37;
-            transition: bottom 0.4s ease;
+            width: 100%; max-width: 480px;
+            background: #0a1911; border-top: 2px solid #d4af37;
+            border-radius: 30px 30px 0 0; padding: 30px 25px 40px;
+            z-index: 201; transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.6);
         }
+
+        .sheet-overlay.active { opacity: 1; visibility: visible; }
         .bottom-sheet.active { bottom: 0; }
-        .bottom-sheet-overlay.active { opacity: 1; visibility: visible; }
+
+        .sheet-title { color: #d4af37; text-align: center; margin-bottom: 25px; font-size: 24px; font-weight: 800; }
         
-        .input-field {
-            width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(212, 175, 55, 0.3);
-            color: #fff; padding: 15px; border-radius: 12px; font-size: 16px; margin-bottom: 15px;
-            outline: none; font-family: inherit;
+        .input-group { margin-bottom: 15px; }
+        .form-input {
+            width: 100%; background: rgba(255,255,255,0.08); border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #fff; padding: 16px; border-radius: 12px; font-size: 16px; font-family: inherit; outline: none;
+            transition: 0.3s;
         }
-        
-        .result-box { display: none; margin-top: 15px; text-align: center; }
-        .link-textarea {
-            width: 100%; height: 70px; background: #000; border: 1px dashed #d4af37;
-            color: #d4af37; padding: 10px; border-radius: 10px; resize: none; margin-bottom: 15px;
-        }
+        .form-input:focus { border-color: #d4af37; background: rgba(255,255,255,0.12); }
+
         .btn-action {
-            background: #10b981; color: #fff; width: 100%; padding: 14px; border: none;
-            border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; margin-bottom: 10px;
+            width: 100%; padding: 15px; border: none; border-radius: 12px;
+            font-size: 18px; font-weight: 700; cursor: pointer; margin-bottom: 12px;
+            display: flex; justify-content: center; align-items: center; gap: 10px; color: #fff;
+            transition: 0.2s;
+        }
+        .btn-action:active { transform: scale(0.97); }
+        
+        .btn-generate { background: #10b981; }
+        .btn-whatsapp { background: #25D366; }
+        .btn-copy { background: #3b82f6; }
+        .btn-reset { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
+
+        .result-box { display: none; text-align: center; }
+        .link-display {
+            width: 100%; height: 75px; background: rgba(0,0,0,0.5); border: 1px dashed #d4af37;
+            color: #fce883; padding: 12px; border-radius: 12px; resize: none; margin-bottom: 15px; font-size: 14px;
+        }
+        
+        .close-btn {
+            position: absolute; top: 15px; right: 20px; font-size: 28px; color: #fff;
+            background: none; border: none; cursor: pointer; opacity: 0.7;
         }
     </style>
 </head>
 <body>
 
-    <div class="card-wrapper">
+    <div class="bg-overlay" aria-hidden="true"></div>
+
+    <main class="main-container">
         
-        <!-- গোল্ডেন ফ্রেম -->
-        <div class="gold-border-frame">
-            <div class="top-decor">✨ 🌙 ✨</div>
-
-            <h1 class="eid-title">ঈদ মোবারক!</h1>
-            <p class="salam-text">আসসালামু আলাইকুম 🤲</p>
+        <article class="glass-card">
+            <div class="top-icon" aria-hidden="true">🕌🌙</div>
+            <h1 class="title">ঈদ মোবারক</h1>
+            <p class="subtitle">আসসালামু আলাইকুম 🤲</p>
             
-            <p class="sender-label">শুভেচ্ছান্তে:</p>
-            <h2 class="sender-name" id="displaySenderName">আপনার নাম</h2>
-
-            <p class="message-text">এই ঈদ উপলক্ষে আমাকে<br>সালামি পাঠান এবং ঈদের আনন্দ<br>ভাগ করে নিন! 💸🥰</p>
-
-            <!-- পেমেন্ট সেকশন -->
-            <div class="payment-section">
-                <div class="payment-label">পেমেন্ট মাধ্যম</div>
-                <div class="payment-badge" id="displayMethod" style="background: #e2136e;">বিকাশ (bKash)</div>
-                <div class="number-box" id="displayNumber">01XXXXXXXXX</div>
+            <div class="sender-box">
+                <div class="sender-label">শুভেচ্ছান্তে</div>
+                <h2 class="sender-name" id="displaySenderName">আপনার নাম</h2>
             </div>
 
-            <!-- 🟠 Adsterra: Banner (300x250) Integration -->
-            <div class="ad-banner-slot">
+            <!-- 🟢 Updated Emotional Message Content -->
+            <p class="msg-text">
+                ঈদের আনন্দ তো প্রিয়জনদের ভালোবাসাতেই পূর্ণ হয়! তোমার দেওয়া ছোট্ট এই সালামি আমার কাছে শুধুই টাকা নয়, বরং তোমার অমূল্য ভালোবাসা ও আশীর্বাদ। এই ঈদে তোমার সালামির অপেক্ষায় রইলাম... নিরাশ করবে না তো? 🥺❤️
+            </p>
+
+            <div class="wallet-card">
+                <div class="wallet-header">
+                    <span class="wallet-label">পেমেন্ট মাধ্যম</span>
+                    <span class="method-badge" id="displayMethod" style="background: #e2136e;">বিকাশ (bKash)</span>
+                </div>
+                <div class="wallet-number" id="displayNumber">01XXXXXXXXX</div>
+            </div>
+
+            <!-- Adsterra Banner -->
+            <div class="ad-container">
                 <script type="text/javascript">
                     atOptions = {
                         'key' : '34171111078d74b2b88e4e4dc456864a',
@@ -205,41 +285,52 @@
                 </script>
                 <script type="text/javascript" src="https://resignedincidentallysurprise.com/34171111078d74b2b88e4e4dc456864a/invoke.js"></script>
             </div>
-        </div>
+        </article>
 
-        <!-- বাটন -->
-        <div class="fixed-bottom-bar">
-            <button class="btn-create" onclick="openBottomSheet()">নিজের জন্য তৈরি করুন</button>
-        </div>
+    </main>
 
+    <div class="bottom-action-bar">
+        <button class="btn-main" onclick="openSheet()" aria-label="Create your own Eid Salami card">নিজের জন্য তৈরি করুন ✨</button>
     </div>
 
-    <!-- ফর্ম প্যানেল -->
-    <div class="bottom-sheet-overlay" id="sheetOverlay" onclick="closeBottomSheet()"></div>
-    <div class="bottom-sheet" id="bottomSheet">
-        <h2 style="color: #d4af37; text-align: center; margin-bottom: 20px;">কার্ড তৈরি করুন</h2>
+    <section class="bottom-sheet" id="bottomSheet" aria-labelledby="formTitle">
+        <button class="close-btn" onclick="closeSheet()" aria-label="Close Form">&times;</button>
+        <h2 id="formTitle" class="sheet-title">সালামি কার্ড তৈরি করুন</h2>
         
         <div id="formSection">
-            <input type="text" id="nameInput" class="input-field" placeholder="আপনার নাম লিখুন">
-            <select id="methodInput" class="input-field">
-                <option value="bKash">বিকাশ (bKash)</option>
-                <option value="Nagad">নগদ (Nagad)</option>
-                <option value="Rocket">রকেট (Rocket)</option>
-                <option value="Upay">উপায় (Upay)</option>
-            </select>
-            <input type="number" id="numberInput" class="input-field" placeholder="পেমেন্ট নাম্বার">
-            <button class="btn-action" onclick="generateLink()">লিংক তৈরি করুন 🚀</button>
+            <div class="input-group">
+                <input type="text" id="nameInput" class="form-input" placeholder="আপনার নাম লিখুন" aria-label="Enter your name">
+            </div>
+            <div class="input-group">
+                <select id="methodInput" class="form-input" aria-label="Select Payment Method">
+                    <option value="bKash">বিকাশ (bKash)</option>
+                    <option value="Nagad">নগদ (Nagad)</option>
+                    <option value="Rocket">রকেট (Rocket)</option>
+                    <option value="Upay">উপায় (Upay)</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <input type="number" id="numberInput" class="form-input" placeholder="পেমেন্ট নাম্বার (যেমন: 01XXXXXXXXX)" aria-label="Enter your payment number">
+            </div>
+            <button class="btn-action btn-generate" onclick="generateLink()">লিংক তৈরি করুন 🚀</button>
         </div>
 
         <div id="resultSection" class="result-box">
-            <textarea id="generatedLink" class="link-textarea" readonly></textarea>
-            <button class="btn-action" onclick="copyLink()">লিংক কপি করুন 📋</button>
-            <button class="btn-action" style="background: #444;" onclick="location.reload()">নতুন তৈরি করুন</button>
+            <textarea id="generatedLink" class="link-display" readonly aria-label="Generated Link"></textarea>
+            
+            <button class="btn-action btn-whatsapp" onclick="shareWhatsApp()" aria-label="Share on WhatsApp">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                </svg>
+                হোয়াটসঅ্যাপে পাঠান
+            </button>
+            
+            <button class="btn-action btn-copy" id="copyBtn" onclick="copyLink()">লিংক কপি করুন 📋</button>
+            <button class="btn-action btn-reset" onclick="location.reload()">নতুন তৈরি করুন 🔄</button>
         </div>
-    </div>
+    </section>
 
     <script>
-        // URL প্যারামিটার হ্যান্ডলিং
         const urlParams = new URLSearchParams(window.location.search);
         const name = urlParams.get('name');
         const method = urlParams.get('method');
@@ -249,6 +340,9 @@
             document.getElementById('displaySenderName').innerText = name;
             document.getElementById('displayNumber').innerText = number;
             
+            // Dynamic Page Title for SEO when a specific user link is opened
+            document.title = `${name} এর ঈদ সালামি কার্ড - Eid Salami`;
+
             const badge = document.getElementById('displayMethod');
             if(method === 'bKash') badge.style.background = '#e2136e';
             else if(method === 'Nagad') badge.style.background = '#ed1c24';
@@ -256,17 +350,16 @@
             else if(method === 'Upay') badge.style.background = '#0067b2';
             badge.innerText = method;
 
-            // কনফেটি ফায়ারওয়ার্ক
             setTimeout(() => {
-                confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 }, colors:['#d4af37', '#ffffff'] });
-            }, 500);
+                confetti({ particleCount: 150, spread: 100, origin: { y: 0.5 }, colors:['#d4af37', '#fce883', '#ffffff', '#e2136e', '#ed1c24'] });
+            }, 600);
         }
 
-        function openBottomSheet() {
+        function openSheet() {
             document.getElementById('sheetOverlay').classList.add('active');
             document.getElementById('bottomSheet').classList.add('active');
         }
-        function closeBottomSheet() {
+        function closeSheet() {
             document.getElementById('sheetOverlay').classList.remove('active');
             document.getElementById('bottomSheet').classList.remove('active');
         }
@@ -275,10 +368,11 @@
             const n = document.getElementById('nameInput').value.trim();
             const m = document.getElementById('methodInput').value;
             const num = document.getElementById('numberInput').value.trim();
-            if(!n || !num) return alert('সবগুলো ঘর পূরণ করুন!');
+            if(!n || !num) return alert('অনুগ্রহ করে নাম এবং নাম্বার দিন!');
 
             const link = window.location.href.split('?')[0] + `?name=${encodeURIComponent(n)}&method=${encodeURIComponent(m)}&number=${encodeURIComponent(num)}`;
             document.getElementById('generatedLink').value = link;
+            
             document.getElementById('formSection').style.display = 'none';
             document.getElementById('resultSection').style.display = 'block';
         }
@@ -287,7 +381,23 @@
             const text = document.getElementById('generatedLink');
             text.select();
             document.execCommand('copy');
-            alert('লিংক কপি হয়েছে! এখন শেয়ার করুন।');
+            
+            const btn = document.getElementById('copyBtn');
+            btn.innerHTML = 'কপি হয়েছে! ✔';
+            btn.style.background = '#059669';
+            
+            setTimeout(() => {
+                btn.innerHTML = 'লিংক কপি করুন 📋';
+                btn.style.background = '#3b82f6';
+            }, 3000);
+        }
+
+        // 🟢 Updated Emotional WhatsApp Sharing Text
+        function shareWhatsApp() {
+            const link = document.getElementById('generatedLink').value;
+            const message = `ঈদ মোবারক! 🌙\n\nঈদের এই খুশির দিনে তোমার সালামির অপেক্ষায় আছি! তোমার দেওয়া ছোট্ট উপহার আমার কাছে তোমার অনেক বড় ভালোবাসা ও আশীর্বাদ। 🥺❤️\n\nনিরাশ না করে নিচের লিংকে ক্লিক করে এখনই তোমার সালামি পাঠিয়ে দাও:\n\n👉 ${link}`;
+            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         }
     </script>
 </body>
