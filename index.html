@@ -11,18 +11,14 @@
 <style>
 body{
     font-family:'Anek Bangla',sans-serif;
-    margin:0;
-    padding:0;
+    margin:0; padding:0;
     background:url('https://i.postimg.cc/ZCYSdZcx/image.jpg') no-repeat center center/cover;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    color:#fff;
+    display:flex; justify-content:center; align-items:center;
+    min-height:100vh; color:#fff;
 }
 body::before{
     content:'';
-    position:fixed;top:0;left:0;width:100%;height:100%;
+    position:fixed; top:0; left:0; width:100%; height:100%;
     background: rgba(0,0,0,0.55); z-index:-1;
 }
 
@@ -38,33 +34,19 @@ body::before{
 }
 
 .title{
-    font-size:36px;
-    color:#FFD700;
-    font-weight:800;
-    text-shadow:0 0 20px #fff, 0 0 30px #FFD700;
-    margin-bottom:15px;
+    font-size:36px; color:#FFD700; font-weight:800;
+    text-shadow:0 0 20px #fff,0 0 30px #FFD700; margin-bottom:15px;
 }
 
 input, select{
-    width:100%;
-    padding:12px;
-    margin:8px 0;
-    border-radius:12px;
-    border:none;
-    font-size:16px;
+    width:100%; padding:12px; margin:8px 0;
+    border-radius:12px; border:none; font-size:16px;
 }
 
 button{
-    width:100%;
-    padding:14px;
-    margin-top:10px;
-    border:none;
-    border-radius:12px;
-    font-size:16px;
-    background:#FFD700;
-    color:#000;
-    font-weight:bold;
-    cursor:pointer;
+    width:100%; padding:14px; margin-top:10px;
+    border:none; border-radius:12px; font-size:16px;
+    background:#FFD700; color:#000; font-weight:bold; cursor:pointer;
 }
 button:hover{opacity:0.9;}
 
@@ -77,6 +59,7 @@ button:hover{opacity:0.9;}
     text-align:left;
     font-size:18px;
     position:relative;
+    word-break: break-word;
 }
 .output-card::after{
     content:'✨'; position:absolute; top:5px; right:10px; font-size:24px;
@@ -120,7 +103,7 @@ button:hover{opacity:0.9;}
 </div>
 
 <script>
-// confetti 🎉
+// Confetti
 function fireConfetti(){
     confetti({
         particleCount: 100,
@@ -130,14 +113,17 @@ function fireConfetti(){
     });
 }
 
-// validation
+// Number validation
 function isNumberValid(num){return /^[0-9]{11}$/.test(num);}
 
+// Elements
 const generateBtn = document.getElementById("generateBtn");
 const resultDiv = document.getElementById("result");
 const callBtn = document.getElementById("callBtn");
 const shareBtn = document.getElementById("shareBtn");
 const copyBtn = document.getElementById("copyBtn");
+
+let generatedLink = "";
 
 generateBtn.onclick = ()=>{
     const sender=document.getElementById("sender").value.trim();
@@ -148,11 +134,16 @@ generateBtn.onclick = ()=>{
     if(!sender || !number || !payment){alert("সব তথ্য পূরণ করুন!"); return;}
     if(!isNumberValid(number)){alert("সঠিক ১১ সংখ্যার নাম্বার দিন!"); return;}
 
+    // Generate text
     let text=`ঈদ মোবারক 🌙\n`;
     if(receiver) text+=`${receiver} কে\n`;
     text+=`শুভেচ্ছান্তে: ${sender}\nPayment: ${payment}\nNumber: ${number}`;
 
-    resultDiv.innerText=text;
+    // Generate link
+    generatedLink = window.location.href.split('?')[0] + 
+      `?sender=${encodeURIComponent(sender)}&receiver=${encodeURIComponent(receiver)}&payment=${encodeURIComponent(payment)}&number=${encodeURIComponent(number)}`;
+
+    resultDiv.innerHTML = text + `<br><br>🔗 Link: <a href="${generatedLink}" target="_blank">${generatedLink}</a>`;
     resultDiv.style.display="block";
     callBtn.classList.remove("hidden");
     shareBtn.classList.remove("hidden");
@@ -169,15 +160,15 @@ function callNow(){
 
 // Copy function
 function copyLink(){
-    navigator.clipboard.writeText(resultDiv.innerText);
-    alert("Copied!");
+    navigator.clipboard.writeText(generatedLink);
+    alert("Link কপি হয়েছে!");
 }
 
 // Share function
 function shareLink(){
-    let text=resultDiv.innerText;
-    if(navigator.share){navigator.share({text:text});}
-    else{alert("Share supported না।");}
+    if(navigator.share){
+        navigator.share({url: generatedLink, text:"ঈদ মোবারক 🌙"});
+    } else { alert("Share supported না।"); }
 }
 </script>
 
