@@ -133,16 +133,6 @@ function fireConfetti(){
 // validation
 function isNumberValid(num){return /^[0-9]{11}$/.test(num);}
 
-// viral share lock
-let shareCount=0;
-function checkShareLock(){
-    if(shareCount<3){
-        alert("🔒 প্রথমে ৩ বার বন্ধুদের সাথে শেয়ার করুন!");
-        return false;
-    }
-    return true;
-}
-
 const generateBtn = document.getElementById("generateBtn");
 const resultDiv = document.getElementById("result");
 const callBtn = document.getElementById("callBtn");
