@@ -81,42 +81,56 @@ background-image:radial-gradient(1.5px 1.5px at 20px 30px,#fff,transparent),radi
 @keyframes pulse{0%{box-shadow:0 0 0 0 var(--glow);background-position:0 center}70%{box-shadow:0 0 0 15px transparent}100%{box-shadow:0 0 0 0 transparent;background-position:200% center}}
 
 /* Sheet */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(10px);z-index:100;opacity:0;visibility:hidden;transition:.4s ease}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:100;opacity:0;visibility:hidden;transition:.4s ease}
 .overlay.active{opacity:1;visibility:visible}
-.bottom-sheet{position:fixed;bottom:0;left:50%;transform:translate(-50%,100%);width:100%;max-width:480px;background:rgba(5,18,28,.98);border-radius:30px 30px 0 0;padding:26px 22px calc(32px + env(safe-area-inset-bottom,0px));z-index:101;transition:transform .5s cubic-bezier(.175,.885,.32,1.275);border-top:1px solid rgba(212,175,55,.4);box-shadow:0 -10px 50px rgba(0,0,0,.9);max-height:92vh;overflow-y:auto}
+.bottom-sheet{position:fixed;bottom:0;left:50%;transform:translate(-50%,100%);width:100%;max-width:480px;background:linear-gradient(180deg,#0c2030 0%,#06141f 100%);border-radius:32px 32px 0 0;z-index:101;transition:transform .5s cubic-bezier(.2,.9,.3,1.05);box-shadow:0 -10px 50px rgba(0,0,0,.9);max-height:94vh;display:flex;flex-direction:column;overflow:hidden;border-top:1px solid rgba(255,255,255,.12)}
 .bottom-sheet.active{transform:translate(-50%,0)}
-.close-icon{position:absolute;top:12px;right:16px;font-size:32px;color:#94a3b8;cursor:pointer;background:none;border:none;padding:5px 10px;line-height:1}
-.close-icon:active{transform:scale(.8);color:#fff}
-.sheet-title{color:var(--gold2);text-align:center;margin-bottom:16px;font-size:23px;font-weight:800}
+.bottom-sheet::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;background:radial-gradient(ellipse at 50% 0%,var(--glow),transparent 70%);opacity:.45;pointer-events:none}
+.grab{position:relative;width:44px;height:5px;border-radius:5px;background:rgba(255,255,255,.25);margin:10px auto 0;flex-shrink:0}
+.sheet-head{position:relative;text-align:center;padding:14px 56px 8px;flex-shrink:0}
+.sheet-title{font-size:22px;font-weight:800;color:#fff}
+.sheet-sub{font-size:13px;color:#94a3b8;margin-top:2px}
+.close-icon{position:absolute;top:12px;right:16px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);border:none;color:#cbd5e1;font-size:22px;line-height:1;cursor:pointer}
+.close-icon:active{transform:scale(.85)}
+.sheet-body{position:relative;overflow-y:auto;padding:10px 20px 22px;flex:1}
+.sheet-foot{position:relative;padding:12px 20px calc(16px + env(safe-area-inset-bottom,0px));border-top:1px solid rgba(255,255,255,.08);background:rgba(2,11,20,.75);flex-shrink:0}
 
-.tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:rgba(255,255,255,.06);padding:5px;border-radius:16px;margin-bottom:18px}
-.tab{border:none;background:transparent;color:#94a3b8;padding:12px 6px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;transition:.25s}
-.tab.active{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;box-shadow:0 4px 14px var(--glow)}
+.occ{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 16px}
+.tab{display:flex;flex-direction:column;align-items:center;gap:2px;padding:14px 8px;border-radius:18px;border:1.5px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#cbd5e1;cursor:pointer;transition:.25s}
+.tab .ti{font-size:30px;line-height:1.2}
+.tab b{font-size:16px}
+.tab small{font-size:12px;color:#94a3b8}
+.tab.active{border-color:var(--acc);background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.02));box-shadow:0 0 0 1px var(--acc),0 8px 22px var(--glow);color:#fff}
 
-.field{margin-bottom:14px}
-.field label{display:block;color:#cbd5e1;font-size:14px;font-weight:600;margin-bottom:6px}
+.sec{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:16px;margin-bottom:14px}
+.sec-title{font-size:14px;font-weight:700;color:var(--gold2);margin-bottom:12px}
+.field{margin-bottom:12px}
+.field:last-child{margin-bottom:0}
+.field label{display:block;color:#cbd5e1;font-size:13px;font-weight:600;margin-bottom:6px}
 .field label small{color:#64748b;font-weight:400}
-.input-box{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;padding:15px 16px;border-radius:14px;font-size:16px;outline:none;transition:.3s}
+.input-box{width:100%;background:rgba(0,0,0,.28);border:1.5px solid rgba(255,255,255,.12);color:#fff;padding:14px 15px;border-radius:14px;font-size:16px;outline:none;transition:.25s}
 textarea.input-box{resize:none;min-height:84px;line-height:1.5}
-.input-box:focus{border-color:var(--gold);background:rgba(255,255,255,.12);box-shadow:0 0 10px rgba(212,175,55,.2)}
+.input-box:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--glow)}
 .input-box.bad{border-color:#f87171}
-.input-box option{background:#020b14;color:#fff}
-.err{color:#fca5a5;font-size:13px;margin-top:5px;min-height:0;display:none}
+.err{color:#fca5a5;font-size:13px;margin-top:5px;display:none}
 .counter{text-align:right;font-size:12px;color:#64748b;margin-top:4px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 
-/* Theme picker */
-.bg-label{color:#cbd5e1;font-size:14px;margin-bottom:8px;display:block;font-weight:600}
-.bg-scroll-container{display:flex;gap:12px;overflow-x:auto;padding:8px 4px 12px;scrollbar-width:thin;scrollbar-color:var(--gold) transparent}
-.bg-scroll-container::-webkit-scrollbar{height:6px}
-.bg-scroll-container::-webkit-scrollbar-thumb{background:var(--gold);border-radius:10px}
-.bg-item{min-width:64px;height:64px;border-radius:14px;border:2px solid rgba(255,255,255,.1);cursor:pointer;transition:all .3s cubic-bezier(.175,.885,.32,1.275);flex-shrink:0;background-size:cover;background-position:center;box-shadow:0 4px 10px rgba(0,0,0,.5)}
+.chips{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.chip{border:1.5px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#cbd5e1;border-radius:12px;padding:11px 2px;font-size:13px;font-weight:700;cursor:pointer;transition:.2s}
+.chip.active{color:#fff;border-color:transparent;box-shadow:0 4px 14px rgba(0,0,0,.4)}
+.chip[data-m=bKash].active{background:#e2136e}.chip[data-m=Nagad].active{background:#ed1c24}.chip[data-m=Rocket].active{background:#8c1590}.chip[data-m=Upay].active{background:#0067b2}
+
+.bg-scroll-container{display:flex;gap:12px;overflow-x:auto;padding:6px 4px 10px;scrollbar-width:none}
+.bg-scroll-container::-webkit-scrollbar{display:none}
+.bg-item{position:relative;min-width:72px;height:72px;border-radius:16px;border:2px solid rgba(255,255,255,.12);cursor:pointer;transition:.3s cubic-bezier(.2,.9,.3,1.3);flex-shrink:0;background-size:cover;background-position:center;box-shadow:0 4px 10px rgba(0,0,0,.5)}
 .bg-item:active{transform:scale(.9)}
-.bg-item.active{border-color:var(--gold);border-width:3px;transform:scale(1.1) translateY(-3px);box-shadow:0 8px 20px rgba(212,175,55,.6)}
+.bg-item.active{border-color:var(--gold2);transform:scale(1.08);box-shadow:0 8px 20px rgba(212,175,55,.55)}
+.bg-item.active::after{content:'✓';position:absolute;right:-6px;top:-6px;width:22px;height:22px;border-radius:50%;background:var(--gold);color:#000;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center}
 
 .btn-action{width:100%;padding:15px;border:none;border-radius:14px;font-size:17px;font-weight:800;cursor:pointer;margin-bottom:10px;color:#fff;display:flex;justify-content:center;align-items:center;gap:10px;transition:.2s}
 .btn-action:active{transform:scale(.96)}
-.btn-generate{background:var(--gold);color:#000;box-shadow:0 4px 15px rgba(212,175,55,.4);margin-top:6px}
+.btn-generate{background:linear-gradient(135deg,#fce883,#d4af37);color:#1a1200;box-shadow:0 6px 20px rgba(212,175,55,.45);margin:0;padding:16px;font-size:18px}
 .btn-share{background:#8b5cf6;box-shadow:0 4px 15px rgba(139,92,246,.4)}
 .btn-copy{background:#3b82f6;box-shadow:0 4px 15px rgba(59,130,246,.4)}
 .btn-ghost{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2)}
@@ -125,8 +139,8 @@ textarea.input-box{resize:none;min-height:84px;line-height:1.5}
 .btn-wa{background:#16a34a}.btn-tg{background:#0284c7}
 
 .result-container{display:none;text-align:center}
-.ok-badge{font-size:42px;margin-bottom:4px}
-.result-title{font-weight:700;color:#e2e8f0;margin-bottom:12px}
+.ok-badge{font-size:54px;margin:6px 0 2px;animation:floatSlow 2s infinite alternate}
+.result-title{font-weight:800;font-size:19px;color:#fff;margin-bottom:14px}
 .generated-url{width:100%;background:rgba(0,0,0,.6);border:1px dashed var(--acc);color:var(--acc2);padding:14px;border-radius:12px;margin-bottom:16px;font-size:13px;word-break:break-all;text-align:left}
 
 .toast{position:fixed;left:50%;bottom:110px;transform:translate(-50%,20px);background:#0f172a;border:1px solid rgba(212,175,55,.5);color:#fff;padding:12px 20px;border-radius:50px;font-weight:600;font-size:15px;opacity:0;pointer-events:none;transition:.3s;z-index:200;max-width:90%;text-align:center}
@@ -186,78 +200,86 @@ textarea.input-box{resize:none;min-height:84px;line-height:1.5}
 
 <div class="overlay" id="overlay" onclick="closeBottomSheet()"></div>
 <div class="bottom-sheet" id="sheet" role="dialog" aria-modal="true" aria-label="কার্ড তৈরি করুন">
-  <button class="close-icon" onclick="closeBottomSheet()" aria-label="বন্ধ করুন">&times;</button>
-  <h2 class="sheet-title">কার্ড তৈরি করুন 🎊</h2>
-
-  <div id="formView">
-    <div class="tabs" role="tablist">
-      <button class="tab active" data-occ="eid" onclick="setOccasion('eid')">🌙 ঈদ সালামি</button>
-      <button class="tab" data-occ="bday" onclick="setOccasion('bday')">🎂 জন্মদিন</button>
-    </div>
-
-    <div class="field">
-      <label for="inputReceiverName" id="lblReceiver">যার কাছে পাঠাবেন <small>(ঐচ্ছিক)</small></label>
-      <input type="text" id="inputReceiverName" class="input-box" maxlength="40" placeholder="তার নাম 🎯">
-    </div>
-
-    <div class="field" id="ageField" style="display:none">
-      <label for="inputAge">বয়স <small>(ঐচ্ছিক)</small></label>
-      <input type="number" id="inputAge" class="input-box" inputmode="numeric" min="1" max="120" placeholder="যেমন: 21 🎈">
-    </div>
-
-    <div class="field">
-      <label for="inputSenderName">আপনার নাম</label>
-      <input type="text" id="inputSenderName" class="input-box" maxlength="40" placeholder="আপনার নাম লিখুন ✍️">
-      <p class="err" id="errName">আপনার নাম লিখুন</p>
-    </div>
-
-    <div class="field">
-      <label for="inputMessage">নিজের মেসেজ <small>(ঐচ্ছিক — না দিলে সুন্দর মেসেজ বসবে)</small></label>
-      <textarea id="inputMessage" class="input-box" maxlength="220" placeholder="মনের কথা লিখুন 💬"></textarea>
-      <div class="counter"><span id="msgCount">0</span>/220</div>
-    </div>
-
-    <div class="row2">
-      <div class="field">
-        <label for="inputMethod">মাধ্যম</label>
-        <select id="inputMethod" class="input-box">
-          <option value="bKash">বিকাশ (bKash)</option>
-          <option value="Nagad">নগদ (Nagad)</option>
-          <option value="Rocket">রকেট (Rocket)</option>
-          <option value="Upay">উপায় (Upay)</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="inputNumber" id="lblNumber">অ্যাকাউন্ট নাম্বার</label>
-        <input type="tel" id="inputNumber" class="input-box" inputmode="numeric" maxlength="11" placeholder="01XXXXXXXXX">
-      </div>
-    </div>
-    <p class="err" id="errNumber" style="margin:-8px 0 12px">নাম্বার ০১ দিয়ে শুরু হবে, মোট ১১ ডিজিট</p>
-
-    <div class="field">
-      <span class="bg-label">থিম বেছে নিন 🎨 <small style="color:#64748b;font-weight:400">(সাথে সাথে প্রিভিউ দেখাবে)</small></span>
-      <div class="bg-scroll-container" id="bgContainer"></div>
-    </div>
-
-    <button class="btn-action btn-generate" onclick="createLink()">লিংক তৈরি করুন 🚀</button>
+  <div class="grab"></div>
+  <div class="sheet-head">
+    <h2 class="sheet-title">নিজের কার্ড বানান ✨</h2>
+    <p class="sheet-sub">তথ্য দিন, লিংক পেয়ে যান</p>
+    <button class="close-icon" onclick="closeBottomSheet()" aria-label="বন্ধ করুন">&times;</button>
   </div>
 
-  <div id="resultView" class="result-container">
-    <div class="ok-badge">🎉</div>
-    <p class="result-title">আপনার লিংক তৈরি হয়েছে!</p>
-    <div class="generated-url" id="finalLink"></div>
+  <div class="sheet-body" id="sheetBody">
+    <div id="formView">
+      <div class="occ">
+        <button class="tab active" data-occ="eid" onclick="setOccasion('eid')"><span class="ti">🌙</span><b>ঈদ সালামি</b><small>ঈদে সালামি চান</small></button>
+        <button class="tab" data-occ="bday" onclick="setOccasion('bday')"><span class="ti">🎂</span><b>জন্মদিন গিফট</b><small>জন্মদিনে গিফট চান</small></button>
+      </div>
 
-    <button class="btn-action btn-share" onclick="shareAnywhere()">
-      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
-      শেয়ার করুন
-    </button>
-    <div class="share-row">
-      <button class="btn-action btn-wa" onclick="shareTo('wa')">WhatsApp</button>
-      <button class="btn-action btn-tg" onclick="shareTo('tg')">Telegram</button>
+      <div class="sec">
+        <div class="sec-title">👤 আপনার তথ্য</div>
+        <div class="field">
+          <label for="inputSenderName">আপনার নাম</label>
+          <input type="text" id="inputSenderName" class="input-box" maxlength="40" placeholder="যেমন: জিহাদ">
+          <p class="err" id="errName">আপনার নাম লিখুন</p>
+        </div>
+        <div class="field" id="ageField" style="display:none">
+          <label for="inputAge">আপনার বয়স <small>(ঐচ্ছিক)</small></label>
+          <input type="number" id="inputAge" class="input-box" inputmode="numeric" min="1" max="120" placeholder="যেমন: 21">
+        </div>
+        <div class="field">
+          <label for="inputReceiverName" id="lblReceiver">যার কাছে পাঠাবেন <small>(ঐচ্ছিক)</small></label>
+          <input type="text" id="inputReceiverName" class="input-box" maxlength="40" placeholder="তার নাম">
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">💳 টাকা পাওয়ার মাধ্যম</div>
+        <div class="chips" id="chips">
+          <button type="button" class="chip active" data-m="bKash" onclick="setMethod('bKash')">বিকাশ</button>
+          <button type="button" class="chip" data-m="Nagad" onclick="setMethod('Nagad')">নগদ</button>
+          <button type="button" class="chip" data-m="Rocket" onclick="setMethod('Rocket')">রকেট</button>
+          <button type="button" class="chip" data-m="Upay" onclick="setMethod('Upay')">উপায়</button>
+        </div>
+        <input type="hidden" id="inputMethod" value="bKash">
+        <div class="field">
+          <label for="inputNumber" id="lblNumber">অ্যাকাউন্ট নাম্বার</label>
+          <input type="tel" id="inputNumber" class="input-box" inputmode="numeric" maxlength="11" placeholder="01XXXXXXXXX">
+          <p class="err" id="errNumber">নাম্বার ০১ দিয়ে শুরু হবে, মোট ১১ ডিজিট</p>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">💬 মেসেজ <small style="color:#64748b;font-weight:400">(ঐচ্ছিক — না দিলে সুন্দর মেসেজ বসবে)</small></div>
+        <textarea id="inputMessage" class="input-box" maxlength="220" placeholder="মনের কথা লিখুন"></textarea>
+        <div class="counter"><span id="msgCount">0</span>/220</div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">🎨 থিম <small style="color:#64748b;font-weight:400">(সাথে সাথে প্রিভিউ)</small></div>
+        <div class="bg-scroll-container" id="bgContainer"></div>
+      </div>
     </div>
-    <button class="btn-action btn-copy" id="copyBtn" onclick="copyMyLink()">লিংক কপি করুন 📋</button>
-    <button class="btn-action btn-ghost" onclick="window.open(globalLink,'_blank')">কার্ড দেখুন 👀</button>
-    <button class="btn-action btn-ghost" onclick="backToForm()">আবার বানান 🔄</button>
+
+    <div id="resultView" class="result-container">
+      <div class="ok-badge">🎉</div>
+      <p class="result-title">আপনার লিংক তৈরি!</p>
+      <div class="generated-url" id="finalLink"></div>
+
+      <button class="btn-action btn-share" onclick="shareAnywhere()">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+        শেয়ার করুন
+      </button>
+      <div class="share-row">
+        <button class="btn-action btn-wa" onclick="shareTo('wa')">WhatsApp</button>
+        <button class="btn-action btn-tg" onclick="shareTo('tg')">Telegram</button>
+      </div>
+      <button class="btn-action btn-copy" id="copyBtn" onclick="copyMyLink()">লিংক কপি করুন 📋</button>
+      <button class="btn-action btn-ghost" onclick="window.open(globalLink,'_blank')">কার্ড দেখুন 👀</button>
+      <button class="btn-action btn-ghost" onclick="backToForm()">আবার বানান 🔄</button>
+    </div>
+  </div>
+
+  <div class="sheet-foot" id="formFoot">
+    <button class="btn-action btn-generate" onclick="createLink()">লিংক তৈরি করুন 🚀</button>
   </div>
 </div>
 
@@ -274,10 +296,10 @@ const OCC = {
     wallet: 'সালামি পাঠান 💳', colors: ['#d4af37','#10b981','#ef4444','#ffffff']
   },
   bday: {
-    sub: 'শুভ জন্মদিন! 🎉💖', hero: ['🎂','🎈','🎁'], bg: 'bimg1',
-    title: n => `${n} এর পক্ষ থেকে জন্মদিনের শুভেচ্ছা! 🎂✨`,
-    msg: 'আজকের দিনটা শুধু তোমার! 🎉 হাসি, ভালোবাসা আর সুন্দর স্বপ্নে ভরে উঠুক তোমার নতুন বছর। 🌟 আল্লাহ তোমাকে সবসময় সুস্থ ও সুখে রাখুন। 🤲💖 অনেক অনেক শুভ জন্মদিন!',
-    wallet: 'গিফট পাঠাতে চাইলে 🎁', colors: ['#ec4899','#f9a8d4','#d4af37','#ffffff']
+    sub: 'আজ আমার জন্মদিন! 🎂💖', hero: ['🎂','🎈','🎁'], bg: 'bimg1',
+    title: n => `${n} এর জন্মদিন! গিফট চাই 🎂🎁`,
+    msg: 'আজ আমার জন্মদিন! 🎂 তোমাদের দোয়া আর ভালোবাসাই আমার সবচেয়ে বড় উপহার। 🥰 তবে সাথে ছোট্ট একটা গিফট বা ট্রিটের টাকা পেলে দিনটা আরও স্পেশাল হয়ে যেত... নিরাশ করবে না তো? 🥺🎁💸',
+    wallet: 'গিফট পাঠান 🎁', colors: ['#ec4899','#f9a8d4','#d4af37','#ffffff']
   }
 };
 
@@ -378,7 +400,7 @@ function renderCard(d) {
   if (d.d) { rec.textContent = `প্রিয় ${d.d},`; rec.style.display = 'block'; } else rec.style.display = 'none';
 
   const age = parseInt(d.g, 10), pill = $('agePill');
-  if (d.occ === 'bday' && age > 0 && age < 121) { pill.textContent = `🎈 তুমি ${toBn(age)} বছরে পা দিলে!`; pill.style.display = 'block'; }
+  if (d.occ === 'bday' && age > 0 && age < 121) { pill.textContent = `🎈 আজ আমি ${toBn(age)} বছরে পা দিলাম!`; pill.style.display = 'block'; }
   else pill.style.display = 'none';
 
   const showWallet = d.c || d.demo;
@@ -437,9 +459,8 @@ function syncForm() {
   document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.occ === curOcc));
   const bd = curOcc === 'bday';
   $('ageField').style.display = bd ? 'block' : 'none';
-  $('lblReceiver').innerHTML = (bd ? 'যার জন্মদিন' : 'যার কাছে পাঠাবেন') + ' <small>(ঐচ্ছিক)</small>';
-  $('lblNumber').innerHTML = bd ? 'নাম্বার <small>(ঐচ্ছিক)</small>' : 'অ্যাকাউন্ট নাম্বার';
-  $('inputMessage').placeholder = bd ? 'জন্মদিনের শুভেচ্ছা লিখুন 💬' : 'মনের কথা লিখুন 💬';
+  $('lblReceiver').innerHTML = (bd ? 'যার কাছে গিফট চাইবেন' : 'যার কাছে পাঠাবেন') + ' <small>(ঐচ্ছিক)</small>';
+  $('inputMessage').placeholder = bd ? 'যেমন: আজ আমার জন্মদিন, একটা ট্রিট দাও 😄' : 'মনের কথা লিখুন';
 }
 
 $('inputMessage').addEventListener('input', e => { $('msgCount').textContent = e.target.value.length; });
@@ -462,14 +483,14 @@ function createLink() {
   const age = $('inputAge').value.trim();
 
   const nameBad = !sender;
-  const numBad = bd ? (num !== '' && !validNum(num)) : !validNum(num);
+  const numBad = !validNum(num);
   showErr('inputSenderName', 'errName', nameBad);
   showErr('inputNumber', 'errNumber', numBad);
   if (nameBad || numBad) { toast('ঘরগুলো ঠিক করে নিন 🥺'); return; }
 
   const p = new URLSearchParams();
   p.set('t', curOcc); p.set('a', sender); p.set('b', method);
-  if (num) p.set('c', num);
+  p.set('c', num);
   if (receiver) p.set('d', receiver);
   if (bd && age) p.set('g', age);
   if (msg) p.set('m', msg);
@@ -479,11 +500,17 @@ function createLink() {
   $('finalLink').textContent = globalLink;
   $('formView').style.display = 'none';
   $('resultView').style.display = 'block';
-  $('sheet').scrollTop = 0;
+  $('formFoot').style.display = 'none';
+  $('sheetBody').scrollTop = 0;
   fireConfetti(false);
 }
 
-function backToForm() { $('resultView').style.display = 'none'; $('formView').style.display = 'block'; }
+function backToForm() { $('resultView').style.display = 'none'; $('formView').style.display = 'block'; $('formFoot').style.display = 'block'; }
+
+function setMethod(m) {
+  $('inputMethod').value = m;
+  document.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.m === m));
+}
 
 /* ---------- Copy / Share ---------- */
 function toast(t) {
@@ -506,7 +533,7 @@ function copyMyLink() {
   setTimeout(() => { b.textContent = 'লিংক কপি করুন 📋'; b.style.background = ''; }, 2500);
 }
 
-const shareText = () => curOcc === 'bday' ? 'তোমার জন্য জন্মদিনের একটা সারপ্রাইজ আছে 🎂 দেখতে লিংকে ক্লিক করো 👇' : 'তোমার জন্য কিছু একটা অপেক্ষা করছে, দেখতে লিংকে ক্লিক করো 👇';
+const shareText = () => curOcc === 'bday' ? 'আজ আমার জন্মদিন 🎂 তোমার জন্য একটা সারপ্রাইজ আছে, দেখতে লিংকে ক্লিক করো 👇' : 'তোমার জন্য কিছু একটা অপেক্ষা করছে, দেখতে লিংকে ক্লিক করো 👇';
 
 function shareAnywhere() {
   if (navigator.share) navigator.share({title: OCC[curOcc].title('আমার'), text: shareText(), url: globalLink}).catch(() => {});
