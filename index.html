@@ -1,552 +1,529 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#020b14">
-    
-    <title>ঈদ সারপ্রাইজ! 🎁✨</title>
-    <meta name="description" content="তোমার জন্য একটি বিশেষ সারপ্রাইজ অপেক্ষা করছে, এখনই লিংকে ক্লিক করে দেখে নাও!">
-    
-    <!-- 🟢 SEO & Social Tags -->
-    <link rel="canonical" href="https://eidz.vercel.app/">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://eidz.vercel.app/">
-    <meta property="og:title" content="তোমার জন্য কিছু একটা অপেক্ষা করছে! 🎁✨">
-    <meta property="og:description" content="দেরি না করে এখনই লিংকে ক্লিক করে দেখে নাও তোমার জন্য কী সারপ্রাইজ আছে!">
-    <meta property="og:image" content="https://i.postimg.cc/GtcZLDFs/Zihad.jpg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#020b14">
+<title>সারপ্রাইজ কার্ড 🎁✨</title>
+<meta name="description" content="তোমার জন্য একটি বিশেষ সারপ্রাইজ অপেক্ষা করছে, এখনই লিংকে ক্লিক করে দেখে নাও!">
 
-    <!-- Fonts & Confetti -->
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<!-- SEO & Social -->
+<link rel="canonical" href="https://eidz.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://eidz.vercel.app/">
+<meta property="og:title" content="তোমার জন্য কিছু একটা অপেক্ষা করছে! 🎁✨">
+<meta property="og:description" content="দেরি না করে এখনই লিংকে ক্লিক করে দেখে নাও তোমার জন্য কী সারপ্রাইজ আছে!">
+<meta property="og:image" content="https://i.postimg.cc/GtcZLDFs/Zihad.jpg">
 
-    <!-- 🟢 Adsterra Integration -->
-    <script src="https://resignedincidentallysurprise.com/62/d5/0a/62d50ae733fbc32fff13e67405ef6adc.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Anek Bangla', sans-serif; -webkit-tap-highlight-color: transparent; }
-        
-        body {
-            background-color: #020b14;
-            color: #ffffff;
-            overflow-x: hidden;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+<!-- Adsterra -->
+<script src="https://resignedincidentallysurprise.com/62/d5/0a/62d50ae733fbc32fff13e67405ef6adc.js"></script>
 
-        /* 🟢 Smooth Magical Backgrounds */
-        .mystical-bg {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% -20%, #0a422b 0%, #020b14 70%);
-            z-index: -3;
-            transition: background 0.8s ease-in-out;
-        }
+<style>
+:root{--acc:#10b981;--acc2:#34d399;--glow:rgba(16,185,129,.55);--gold:#d4af37;--gold2:#fce883;--night:#020b14}
+body[data-occ="bday"]{--acc:#ec4899;--acc2:#f9a8d4;--glow:rgba(236,72,153,.55)}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Anek Bangla',sans-serif;-webkit-tap-highlight-color:transparent}
+body{background:var(--night);color:#fff;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+button,input,select,textarea{font-family:inherit}
+:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
 
-        .stars-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
-            background-image: 
-                radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), rgba(0,0,0,0)),
-                radial-gradient(2.5px 2.5px at 90px 40px, #fce883, rgba(0,0,0,0)),
-                radial-gradient(1.5px 1.5px at 160px 120px, #ffffff, rgba(0,0,0,0));
-            background-repeat: repeat; background-size: 250px 250px;
-            animation: starsTwinkle 4s infinite alternate; opacity: 0.6;
-            pointer-events: none;
-        }
+/* Background */
+.mystical-bg{position:fixed;inset:0;background:radial-gradient(circle at 50% -20%,#0a422b 0%,#020b14 70%);z-index:-3;transition:background .6s ease}
+.stars-overlay{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.6;background-repeat:repeat;background-size:250px 250px;animation:twinkle 4s infinite alternate;
+background-image:radial-gradient(1.5px 1.5px at 20px 30px,#fff,transparent),radial-gradient(2px 2px at 40px 70px,rgba(255,255,255,.8),transparent),radial-gradient(2.5px 2.5px at 90px 40px,#fce883,transparent),radial-gradient(1.5px 1.5px at 160px 120px,#fff,transparent)}
+.firefly{position:fixed;width:6px;height:6px;background:var(--gold2);border-radius:50%;box-shadow:0 0 15px 4px rgba(252,232,131,.6);animation:floatUp 15s infinite linear;opacity:0;pointer-events:none;z-index:-1;bottom:-10px}
+.f1{left:10%;animation-duration:12s}.f2{left:30%;width:4px;height:4px;animation-duration:18s;animation-delay:2s}.f3{left:70%;animation-duration:15s;animation-delay:4s}.f4{left:85%;width:8px;height:8px;animation-duration:10s;animation-delay:1s}
+@keyframes twinkle{to{opacity:.9}}
+@keyframes floatUp{0%{transform:translateY(0) translateX(0);opacity:0}10%,90%{opacity:1}100%{transform:translateY(-100vh) translateX(50px);opacity:0}}
 
-        /* Floating Golden Fireflies */
-        .firefly {
-            position: absolute; width: 6px; height: 6px;
-            background: #fce883; border-radius: 50%;
-            box-shadow: 0 0 15px 4px rgba(252, 232, 131, 0.6);
-            animation: floatFirefly 15s infinite linear; opacity: 0; pointer-events: none;
-        }
+/* Card */
+.app-container{width:94%;max-width:420px;padding:22px 0 140px;z-index:10}
+.gift-card{background:rgba(255,255,255,.06);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(212,175,55,.35);border-radius:30px;padding:28px 20px;text-align:center;position:relative;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.7),inset 0 0 20px rgba(212,175,55,.08);animation:enter .8s ease-out}
+.gift-card::after{content:'';position:absolute;top:0;left:-150%;width:50%;height:100%;background:linear-gradient(to right,transparent,rgba(255,255,255,.1),transparent);transform:skewX(-25deg);animation:shine 4s infinite 2s;pointer-events:none}
+@keyframes shine{0%{left:-150%}20%,100%{left:150%}}
+@keyframes enter{from{opacity:0;transform:translateY(30px) scale(.95)}to{opacity:1;transform:none}}
 
-        .f1 { bottom: -10px; left: 10%; animation-duration: 12s; animation-delay: 0s; }
-        .f2 { bottom: -10px; left: 30%; width: 4px; height: 4px; animation-duration: 18s; animation-delay: 2s; }
-        .f3 { bottom: -10px; left: 70%; animation-duration: 15s; animation-delay: 4s; }
-        .f4 { bottom: -10px; left: 85%; width: 8px; height: 8px; animation-duration: 10s; animation-delay: 1s; }
+.subtitle{font-size:20px;color:#e2e8f0;font-weight:700;letter-spacing:.3px;text-shadow:0 2px 5px rgba(0,0,0,.5)}
 
-        @keyframes starsTwinkle { 0% { opacity: 0.3; } 100% { opacity: 0.8; } }
-        @keyframes floatFirefly {
-            0% { transform: translateY(0) translateX(0); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
-        }
+/* Hero (replaces the old GIF - always works) */
+.hero{position:relative;height:150px;display:flex;justify-content:center;align-items:center;margin:6px 0 4px;cursor:pointer;user-select:none}
+.hero::before{content:'';position:absolute;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 70%);animation:breathe 3s infinite alternate}
+.hero-main{position:relative;font-size:84px;line-height:1;animation:floatSlow 3s infinite alternate;filter:drop-shadow(0 10px 20px rgba(212,175,55,.5))}
+.hero-side{position:absolute;top:6px;font-size:38px;line-height:1}
+.hl{left:12%;transform-origin:top center;animation:swing 3s ease-in-out infinite}
+.hr{right:12%;animation:floatSlow 2.4s infinite alternate}
+@keyframes floatSlow{to{transform:translateY(-8px)}}
+@keyframes swing{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(9deg)}}
+@keyframes breathe{to{transform:scale(1.25);opacity:.6}}
 
-        /* 🟢 Main Content Area */
-        .app-container {
-            width: 96%; max-width: 420px;
-            padding: 20px 0 130px 0; z-index: 10;
-        }
+.receiver{font-size:24px;color:var(--acc);font-weight:700;margin-top:10px;display:none;text-shadow:0 2px 5px rgba(0,0,0,.5)}
+.age-pill{display:none;margin:10px auto 0;width:max-content;max-width:100%;padding:6px 16px;border-radius:50px;background:rgba(236,72,153,.18);border:1px solid rgba(249,168,212,.5);color:#fbcfe8;font-weight:700;font-size:15px}
+.message{font-size:16px;color:#f1f5f9;line-height:1.7;margin-top:16px;background:rgba(0,0,0,.45);border-radius:18px;padding:20px;border-left:4px solid var(--acc);text-align:justify;text-align-last:center;box-shadow:0 8px 20px rgba(0,0,0,.4);overflow-wrap:anywhere;white-space:pre-line}
+.regards{color:#94a3b8;font-size:15px;margin-top:22px}
+.name-highlight{font-size:36px;font-weight:800;margin:4px 0 6px;background:linear-gradient(to right,#fff,#d4af37,#fcf6ba);-webkit-background-clip:text;background-clip:text;color:transparent;overflow-wrap:anywhere;line-height:1.3}
 
-        /* 🟢 Glassmorphism Card Premium Look */
-        .gift-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 28px; padding: 30px 20px; text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(212, 175, 55, 0.08);
-            position: relative; overflow: hidden;
-            animation: cardEntrance 0.8s ease-out;
-        }
+/* Wallet */
+.wallet{background:linear-gradient(135deg,rgba(255,255,255,.1),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:20px 18px;margin-top:22px;box-shadow:0 10px 30px rgba(0,0,0,.4);cursor:pointer;transition:transform .2s}
+.wallet:active{transform:scale(.98)}
+.wallet-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:10px}
+.wallet-label{font-size:14px;color:#94a3b8}
+.badge{padding:6px 15px;border-radius:10px;font-weight:800;font-size:14px;color:#fff;letter-spacing:.5px;box-shadow:0 4px 10px rgba(0,0,0,.3)}
+.wallet-number{font-size:30px;font-weight:800;letter-spacing:2px;font-family:monospace;text-shadow:0 2px 5px rgba(0,0,0,.5)}
+.wallet-hint{font-size:12px;color:#94a3b8;margin-top:8px}
+.ad-box{margin-top:24px;display:flex;justify-content:center;width:100%;border-radius:12px;overflow:hidden}
 
-        .gift-card::after {
-            content: ''; position: absolute; top: 0; left: -150%; width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transform: skewX(-25deg); animation: glassShine 4s infinite 2s; pointer-events: none;
-        }
+/* Floating button */
+.floating-bottom{position:fixed;bottom:0;left:0;right:0;padding:15px 20px calc(20px + env(safe-area-inset-bottom,0px));background:linear-gradient(to top,rgba(2,11,20,.95) 50%,transparent);display:flex;justify-content:center;z-index:50}
+.btn-primary{width:100%;max-width:380px;padding:17px;border-radius:50px;border:none;background:linear-gradient(135deg,var(--acc),var(--acc2),var(--acc));background-size:200% auto;color:#fff;font-size:18px;font-weight:800;cursor:pointer;box-shadow:0 8px 25px var(--glow);transition:.3s;animation:pulse 2s infinite}
+.btn-primary:active{transform:scale(.95)}
+@keyframes pulse{0%{box-shadow:0 0 0 0 var(--glow);background-position:0 center}70%{box-shadow:0 0 0 15px transparent}100%{box-shadow:0 0 0 0 transparent;background-position:200% center}}
 
-        @keyframes glassShine { 0% { left: -150%; } 20% { left: 150%; } 100% { left: 150%; } }
-        @keyframes cardEntrance { from { opacity: 0; transform: translateY(30px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+/* Sheet */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(10px);z-index:100;opacity:0;visibility:hidden;transition:.4s ease}
+.overlay.active{opacity:1;visibility:visible}
+.bottom-sheet{position:fixed;bottom:0;left:50%;transform:translate(-50%,100%);width:100%;max-width:480px;background:rgba(5,18,28,.98);border-radius:30px 30px 0 0;padding:26px 22px calc(32px + env(safe-area-inset-bottom,0px));z-index:101;transition:transform .5s cubic-bezier(.175,.885,.32,1.275);border-top:1px solid rgba(212,175,55,.4);box-shadow:0 -10px 50px rgba(0,0,0,.9);max-height:92vh;overflow-y:auto}
+.bottom-sheet.active{transform:translate(-50%,0)}
+.close-icon{position:absolute;top:12px;right:16px;font-size:32px;color:#94a3b8;cursor:pointer;background:none;border:none;padding:5px 10px;line-height:1}
+.close-icon:active{transform:scale(.8);color:#fff}
+.sheet-title{color:var(--gold2);text-align:center;margin-bottom:16px;font-size:23px;font-weight:800}
 
-        .eid-subtitle { font-size: 20px; color: #cbd5e1; font-weight: 700; margin-bottom: 12px; letter-spacing: 0.5px; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
-        
-        /* 🟢 Beautiful Tenor GIF Embed styling */
-        .top-gif-wrapper {
-            display: flex; justify-content: center; align-items: center; 
-            margin: 0 auto 10px auto; width: 100%; max-width: 250px;
-            animation: floatSlow 3s infinite alternate;
-            filter: drop-shadow(0 10px 20px rgba(212, 175, 55, 0.5));
-        }
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:rgba(255,255,255,.06);padding:5px;border-radius:16px;margin-bottom:18px}
+.tab{border:none;background:transparent;color:#94a3b8;padding:12px 6px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;transition:.25s}
+.tab.active{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;box-shadow:0 4px 14px var(--glow)}
 
-        /* Clean up Tenor embed style */
-        .tenor-gif-embed {
-            border-radius: 15px; 
-            overflow: hidden;
-            pointer-events: none; /* Prevents user from clicking away */
-        }
+.field{margin-bottom:14px}
+.field label{display:block;color:#cbd5e1;font-size:14px;font-weight:600;margin-bottom:6px}
+.field label small{color:#64748b;font-weight:400}
+.input-box{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;padding:15px 16px;border-radius:14px;font-size:16px;outline:none;transition:.3s}
+textarea.input-box{resize:none;min-height:84px;line-height:1.5}
+.input-box:focus{border-color:var(--gold);background:rgba(255,255,255,.12);box-shadow:0 0 10px rgba(212,175,55,.2)}
+.input-box.bad{border-color:#f87171}
+.input-box option{background:#020b14;color:#fff}
+.err{color:#fca5a5;font-size:13px;margin-top:5px;min-height:0;display:none}
+.counter{text-align:right;font-size:12px;color:#64748b;margin-top:4px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 
-        @keyframes floatSlow { 0% { transform: translateY(0); } 100% { transform: translateY(-8px); } }
+/* Theme picker */
+.bg-label{color:#cbd5e1;font-size:14px;margin-bottom:8px;display:block;font-weight:600}
+.bg-scroll-container{display:flex;gap:12px;overflow-x:auto;padding:8px 4px 12px;scrollbar-width:thin;scrollbar-color:var(--gold) transparent}
+.bg-scroll-container::-webkit-scrollbar{height:6px}
+.bg-scroll-container::-webkit-scrollbar-thumb{background:var(--gold);border-radius:10px}
+.bg-item{min-width:64px;height:64px;border-radius:14px;border:2px solid rgba(255,255,255,.1);cursor:pointer;transition:all .3s cubic-bezier(.175,.885,.32,1.275);flex-shrink:0;background-size:cover;background-position:center;box-shadow:0 4px 10px rgba(0,0,0,.5)}
+.bg-item:active{transform:scale(.9)}
+.bg-item.active{border-color:var(--gold);border-width:3px;transform:scale(1.1) translateY(-3px);box-shadow:0 8px 20px rgba(212,175,55,.6)}
 
-        .receiver-highlight { font-size: 24px; color: #10b981; font-weight: 700; margin-top: 15px; display: none; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
-        
-        .name-highlight {
-            font-size: 36px; font-weight: 800; margin: 5px 0 20px 0;
-            background: linear-gradient(to right, #ffffff, #d4af37, #fcf6ba);
-            -webkit-background-clip: text; color: transparent;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.6);
-        }
+.btn-action{width:100%;padding:15px;border:none;border-radius:14px;font-size:17px;font-weight:800;cursor:pointer;margin-bottom:10px;color:#fff;display:flex;justify-content:center;align-items:center;gap:10px;transition:.2s}
+.btn-action:active{transform:scale(.96)}
+.btn-generate{background:var(--gold);color:#000;box-shadow:0 4px 15px rgba(212,175,55,.4);margin-top:6px}
+.btn-share{background:#8b5cf6;box-shadow:0 4px 15px rgba(139,92,246,.4)}
+.btn-copy{background:#3b82f6;box-shadow:0 4px 15px rgba(59,130,246,.4)}
+.btn-ghost{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2)}
+.share-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.share-row .btn-action{font-size:15px}
+.btn-wa{background:#16a34a}.btn-tg{background:#0284c7}
 
-        /* 🟢 Emotional Message Box */
-        .emotional-message {
-            font-size: 16px; color: #f1f5f9; line-height: 1.6; margin-top: 15px;
-            background: rgba(0, 0, 0, 0.45); border-radius: 18px; padding: 20px;
-            border-left: 4px solid #10b981; text-align: justify; text-align-last: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4); border-right: 1px solid rgba(255,255,255,0.05);
-        }
+.result-container{display:none;text-align:center}
+.ok-badge{font-size:42px;margin-bottom:4px}
+.result-title{font-weight:700;color:#e2e8f0;margin-bottom:12px}
+.generated-url{width:100%;background:rgba(0,0,0,.6);border:1px dashed var(--acc);color:var(--acc2);padding:14px;border-radius:12px;margin-bottom:16px;font-size:13px;word-break:break-all;text-align:left}
 
-        /* 🟢 Digital Wallet Style */
-        .digital-wallet {
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.02) 100%);
-            border: 1px solid rgba(255,255,255,0.2); border-radius: 20px;
-            padding: 22px 18px; margin-top: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
-        
-        .wallet-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .wallet-label { font-size: 14px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; }
-        
-        .badge {
-            padding: 6px 15px; border-radius: 10px; font-weight: 800; font-size: 14px; color: #fff;
-            letter-spacing: 1px; text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
+.toast{position:fixed;left:50%;bottom:110px;transform:translate(-50%,20px);background:#0f172a;border:1px solid rgba(212,175,55,.5);color:#fff;padding:12px 20px;border-radius:50px;font-weight:600;font-size:15px;opacity:0;pointer-events:none;transition:.3s;z-index:200;max-width:90%;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
 
-        .wallet-number { font-size: 32px; font-weight: 800; letter-spacing: 2px; font-family: monospace; color: #fff; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
-
-        /* Adsterra Slot */
-        .ad-box { margin-top: 25px; display: flex; justify-content: center; width: 100%; border-radius: 12px; overflow: hidden; }
-
-        /* 🟢 Floating Fixed Button */
-        .floating-bottom {
-            position: fixed; bottom: 0; left: 0; right: 0;
-            padding: 15px 20px 20px 20px; 
-            background: linear-gradient(to top, rgba(2, 11, 20, 0.95) 50%, transparent);
-            display: flex; justify-content: center; z-index: 50;
-        }
-
-        .btn-primary {
-            width: 100%; max-width: 380px; padding: 18px; border-radius: 50px; border: none;
-            background: linear-gradient(135deg, #10b981, #34d399, #10b981); background-size: 200% auto;
-            color: #ffffff; font-size: 18px; font-weight: 800; cursor: pointer;
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
-            transition: 0.3s; animation: pulseGlow 2s infinite; text-transform: uppercase;
-        }
-        .btn-primary:active { transform: scale(0.95); }
-
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); background-position: 0% center; }
-            70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); background-position: 200% center; }
-        }
-
-        /* 🟢 Smooth Bottom Sheet UX */
-        .overlay {
-            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px);
-            z-index: 100; opacity: 0; visibility: hidden; transition: 0.4s ease;
-        }
-        .overlay.active { opacity: 1; visibility: visible; }
-
-        .bottom-sheet {
-            position: fixed; bottom: 0; left: 50%; transform: translate(-50%, 100%);
-            width: 100%; max-width: 480px; background: rgba(5, 18, 28, 0.98);
-            border-radius: 30px 30px 0 0; padding: 35px 25px 40px;
-            z-index: 101; transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border-top: 1px solid rgba(212, 175, 55, 0.4); box-shadow: 0 -10px 50px rgba(0,0,0,0.9);
-            max-height: 92vh; overflow-y: auto;
-        }
-        .bottom-sheet.active { transform: translate(-50%, 0); }
-
-        .close-icon {
-            position: absolute; top: 15px; right: 20px; font-size: 32px; color: #94a3b8;
-            cursor: pointer; background: none; border: none; padding: 5px; transition: 0.2s;
-        }
-        .close-icon:active { transform: scale(0.8); color: #fff; }
-
-        .sheet-title { color: #fce883; text-align: center; margin-bottom: 25px; font-size: 24px; font-weight: 800; }
-        
-        .input-box {
-            width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
-            color: #fff; padding: 18px; border-radius: 14px; font-size: 16px; outline: none; margin-bottom: 15px; transition: 0.3s;
-        }
-        .input-box:focus { border-color: #d4af37; background: rgba(255,255,255,0.12); box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
-        .input-box option { background: #020b14; color: #fff; }
-
-        /* 🟢 CapCut Style Background Selector */
-        .bg-selector-wrapper { margin-bottom: 20px; text-align: left; }
-        .bg-label { color: #cbd5e1; font-size: 14px; margin-bottom: 10px; display: inline-block; font-weight: 600; }
-        .bg-scroll-container {
-            display: flex; gap: 12px; overflow-x: auto; padding-bottom: 12px; padding-top: 5px;
-            scrollbar-width: thin; scrollbar-color: #d4af37 transparent;
-        }
-        .bg-scroll-container::-webkit-scrollbar { height: 6px; }
-        .bg-scroll-container::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 10px; }
-        
-        .bg-item {
-            min-width: 65px; height: 65px; border-radius: 14px; border: 2px solid rgba(255,255,255,0.1);
-            cursor: pointer; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); flex-shrink: 0;
-            background-size: cover !important; background-position: center !important;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-        .bg-item:active { transform: scale(0.9); }
-        .bg-item.active {
-            border-color: #d4af37; border-width: 3px; transform: scale(1.1) translateY(-3px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
-        }
-
-        /* 🟢 15 Thumbnails for the Selector */
-        .bg-thumb-img1 { background: url('https://images.unsplash.com/photo-1564683214965-3619addd900d?q=80&w=200&auto=format&fit=crop'); }
-        .bg-thumb-img2 { background: url('https://images.unsplash.com/photo-1596468574169-3232811bd668?q=80&w=200&auto=format&fit=crop'); }
-        .bg-thumb-img3 { background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=200&auto=format&fit=crop'); }
-        .bg-thumb-img4 { background: url('https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?q=80&w=200&auto=format&fit=crop'); }
-        .bg-thumb-img5 { background: url('https://images.unsplash.com/photo-1542382156909-9ae37b3f56fd?q=80&w=200&auto=format&fit=crop'); }
-        .bg-thumb-img6 { background: url('https://images.unsplash.com/photo-1590076215667-875d4ef1caaa?q=80&w=200&auto=format&fit=crop'); }
-        .bg-thumb-img7 { background: url('https://images.unsplash.com/photo-1617251137884-f135eccf6942?q=80&w=200&auto=format&fit=crop'); }
-        .bg-thumb-img8 { background: url('https://images.unsplash.com/photo-1564121211835-e88c852648ab?q=80&w=200&auto=format&fit=crop'); }
-        .bg-thumb-img9 { background: url('https://images.unsplash.com/photo-1583089892943-e02e52f1f6c7?q=80&w=200&auto=format&fit=crop'); }
-        .bg-thumb-img10 { background: url('https://images.unsplash.com/photo-1572048572861-1b918b958e93?q=80&w=200&auto=format&fit=crop'); }
-        .bg-thumb-img11 { background: url('https://images.unsplash.com/photo-1565552643983-4a001ba0ee79?q=80&w=200&auto=format&fit=crop'); }
-        .bg-thumb-img12 { background: url('https://images.unsplash.com/photo-1600860368270-e59173f2730e?q=80&w=200&auto=format&fit=crop'); }
-        .bg-thumb-img13 { background: url('https://images.unsplash.com/photo-1551043047-1d2adf00f3fd?q=80&w=200&auto=format&fit=crop'); }
-        .bg-thumb-img14 { background: url('https://images.unsplash.com/photo-1507608158173-1dcec673a2e5?q=80&w=200&auto=format&fit=crop'); }
-        .bg-thumb-img15 { background: url('https://images.unsplash.com/photo-1519817914152-22d216bb9170?q=80&w=200&auto=format&fit=crop'); }
-        
-        .bg-thumb-default { background: radial-gradient(circle, #0a422b, #020b14); }
-        .bg-thumb-purple { background: radial-gradient(circle, #2a044a, #090214); }
-        .bg-thumb-gold { background: radial-gradient(circle, #4a3f04, #141102); }
-
-        .btn-action {
-            width: 100%; padding: 16px; border: none; border-radius: 14px; font-size: 18px; font-weight: 800;
-            cursor: pointer; margin-bottom: 12px; color: #fff; display: flex; justify-content: center; align-items: center; gap: 10px; transition: 0.2s;
-        }
-        .btn-action:active { transform: scale(0.96); }
-        .btn-generate { background: #d4af37; color: #000; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); margin-top: 10px; }
-        .btn-share { background: #8b5cf6; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); }
-        .btn-copy { background: #3b82f6; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); }
-
-        .result-container { display: none; text-align: center; }
-        .generated-url {
-            width: 100%; background: rgba(0,0,0,0.6); border: 1px dashed #10b981; color: #34d399;
-            padding: 15px; border-radius: 12px; margin-bottom: 20px; font-size: 14px; word-break: break-all;
-        }
-    </style>
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
 </head>
-<body>
+<body data-occ="eid">
 
-    <!-- 🟢 Magical Background Elements -->
-    <div class="mystical-bg" id="mainBg"></div>
-    <div class="stars-overlay"></div>
-    <div class="firefly f1"></div>
-    <div class="firefly f2"></div>
-    <div class="firefly f3"></div>
-    <div class="firefly f4"></div>
+<div class="mystical-bg" id="mainBg"></div>
+<div class="stars-overlay"></div>
+<div class="firefly f1"></div><div class="firefly f2"></div><div class="firefly f3"></div><div class="firefly f4"></div>
 
-    <div class="app-container">
-        
-        <div class="gift-card">
-            
-            <!-- 🟢 Assalamualaikum Text (Above GIF) -->
-            <p class="eid-subtitle">আসসালামু আলাইকুম 🤲💖</p>
-            
-            <!-- 🟢 EXACT Tenor GIF Embed Provided By User -->
-            <div class="top-gif-wrapper">
-                <div class="tenor-gif-embed" data-postid="14384092" data-share-method="host" data-aspect-ratio="1.47525" data-width="100%">
-                    <a href="Habby Birthday">Eid Mubarak ईद GIF</a>
-                </div> 
-                <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
-            </div>
-            
-            <!-- 🟢 Receiver Name -->
-            <h2 class="receiver-highlight" id="displayReceiver">প্রিয় [Name],</h2>
+<main class="app-container">
+  <section class="gift-card">
+    <p class="subtitle" id="subtitle">আসসালামু আলাইকুম 🤲💖</p>
 
-            <!-- 🟢 Emotional Message -->
-            <div class="emotional-message">
-                ঈদের আনন্দ তো প্রিয়জনদের ভালোবাসাতেই পূর্ণ হয়! 🥰 তোমার দেওয়া ছোট্ট এই উপহার আমার কাছে তোমার অনেক বড় আশীর্বাদ। 🤲✨ এই ঈদে তোমার সালামির অপেক্ষায় রইলাম... নিরাশ করবে না তো? 🥺💸❤️
-            </div>
-
-            <p style="color: #94a3b8; font-size: 15px; margin-top: 22px;">শুভেচ্ছান্তে 💌</p>
-            <h2 class="name-highlight" id="displayName">আপনার নাম</h2>
-
-            <div class="digital-wallet">
-                <div class="wallet-top">
-                    <span class="wallet-label">পেমেন্ট মাধ্যম 💳</span>
-                    <span class="badge" id="displayMethod" style="background: #e2136e;">বিকাশ (bKash)</span>
-                </div>
-                <div class="wallet-number" id="displayNumber">01XXXXXXXXX</div>
-            </div>
-
-            <!-- Adsterra Slot -->
-            <div class="ad-box">
-                <script type="text/javascript">
-                    atOptions = {
-                        'key' : '34171111078d74b2b88e4e4dc456864a',
-                        'format' : 'iframe',
-                        'height' : 250,
-                        'width' : 300,
-                        'params' : {}
-                    };
-                </script>
-                <script type="text/javascript" src="https://resignedincidentallysurprise.com/34171111078d74b2b88e4e4dc456864a/invoke.js"></script>
-            </div>
-        </div>
-
+    <div class="hero" id="hero" title="ট্যাপ করো 🎉">
+      <span class="hero-side hl" id="heroL">🏮</span>
+      <span class="hero-main" id="heroMain">🌙</span>
+      <span class="hero-side hr" id="heroR">⭐</span>
     </div>
 
-    <!-- Floating Action Button -->
-    <div class="floating-bottom">
-        <button class="btn-primary" onclick="openBottomSheet()">নিজের জন্য তৈরি করুন ✨🪄</button>
+    <h2 class="receiver" id="displayReceiver">প্রিয় [Name],</h2>
+    <div class="age-pill" id="agePill"></div>
+
+    <div class="message" id="displayMessage"></div>
+
+    <p class="regards">শুভেচ্ছান্তে 💌</p>
+    <h2 class="name-highlight" id="displayName">আপনার নাম</h2>
+
+    <div class="wallet" id="wallet" role="button" tabindex="0" aria-label="নাম্বার কপি করুন">
+      <div class="wallet-top">
+        <span class="wallet-label" id="walletLabel">সালামি পাঠান 💳</span>
+        <span class="badge" id="displayMethod" style="background:#e2136e">bKash</span>
+      </div>
+      <div class="wallet-number" id="displayNumber">01XXXXXXXXX</div>
+      <p class="wallet-hint">নাম্বারে ট্যাপ করলেই কপি হবে 📋</p>
     </div>
 
-    <!-- 🟢 Pop-up Bottom Sheet (Form) -->
-    <div class="overlay" id="overlay" onclick="closeBottomSheet()"></div>
-    
-    <div class="bottom-sheet" id="sheet">
-        <button class="close-icon" onclick="closeBottomSheet()">&times;</button>
-        <h2 class="sheet-title">কার্ড তৈরি করুন 🎊</h2>
-        
-        <div id="formView">
-            <input type="text" id="inputReceiverName" class="input-box" placeholder="যার কাছে পাঠাবেন তার নাম (ঐচ্ছিক) 🎯">
-            <input type="text" id="inputSenderName" class="input-box" placeholder="আপনার নাম লিখুন (প্রেরক) ✍️">
-            
-            <select id="inputMethod" class="input-box">
-                <option value="bKash">বিকাশ (bKash) 📱</option>
-                <option value="Nagad">ন নগদ (Nagad) 📱</option>
-                <option value="Rocket">রকেট (Rocket) 📱</option>
-                <option value="Upay">উপায় (Upay) 📱</option>
-            </select>
-            
-            <input type="number" id="inputNumber" class="input-box" placeholder="আপনার একাউন্ট নাম্বার 🔢">
+    <!-- Adsterra Slot -->
+    <div class="ad-box">
+      <script type="text/javascript">
+        atOptions = {'key':'34171111078d74b2b88e4e4dc456864a','format':'iframe','height':250,'width':300,'params':{}};
+      </script>
+      <script type="text/javascript" src="https://resignedincidentallysurprise.com/34171111078d74b2b88e4e4dc456864a/invoke.js"></script>
+    </div>
+  </section>
+</main>
 
-            <!-- 🟢 CapCut Style Live Background Changer (15 Images + 3 Colors) -->
-            <div class="bg-selector-wrapper">
-                <span class="bg-label">থিম নির্বাচন করুন 🎨 (লাইভ প্রিভিউ)</span>
-                <div class="bg-scroll-container" id="bgContainer">
-                    <div class="bg-item bg-thumb-img1 active" data-bg="img1" onclick="selectBg(this)"></div>
-                    <div class="bg-item bg-thumb-img2" data-bg="img2" onclick="selectBg(this)"></div>
-                    <div class="bg-item bg-thumb-img3" data-bg="img3" onclick="selectBg(this)"></div>
-                    <div class="bg-item bg-thumb-img4" data-bg="img4" onclick="selectBg(this)"></div>
-                    <div class="bg-item bg-thumb-img5" data-bg="img5" onclick="selectBg(this)"></div>
-                    <div class="bg-item bg-thumb-img6" data-bg="img6" onclick="selectBg(this)"></div>
-                    <div class="bg-item bg-thumb-img7" data-bg="img7" onclick="selectBg(this)"></div>
-                    <div class="bg-item bg-thumb-img8" data-bg="img8" onclick="selectBg(this)"></div>
-                    <div class="bg-item bg-thumb-img9" data-bg="img9" onclick="selectBg(this)"></div>
-                    <div class="bg-item bg-thumb-img10" data-bg="img10" onclick="selectBg(this)"></div>
-                    <div class="bg-item bg-thumb-img11" data-bg="img11" onclick="selectBg(this)"></div>
-                    <div class="bg-item bg-thumb-img12" data-bg="img12" onclick="selectBg(this)"></div>
-                    <div class="bg-item bg-thumb-img13" data-bg="img13" onclick="selectBg(this)"></div>
-                    <div class="bg-item bg-thumb-img14" data-bg="img14" onclick="selectBg(this)"></div>
-                    <div class="bg-item bg-thumb-img15" data-bg="img15" onclick="selectBg(this)"></div>
-                    <div class="bg-item bg-thumb-default" data-bg="default" onclick="selectBg(this)"></div>
-                    <div class="bg-item bg-thumb-purple" data-bg="purple" onclick="selectBg(this)"></div>
-                    <div class="bg-item bg-thumb-gold" data-bg="gold" onclick="selectBg(this)"></div>
-                </div>
-            </div>
-            
-            <button class="btn-action btn-generate" onclick="createLink()">লিংক তৈরি করুন 🚀</button>
-        </div>
+<div class="floating-bottom">
+  <button class="btn-primary" onclick="openBottomSheet()">নিজের কার্ড তৈরি করুন ✨🪄</button>
+</div>
 
-        <div id="resultView" class="result-container">
-            <div class="generated-url" id="finalLink">লিংক এখানে দেখাবে...</div>
-            
-            <!-- 🟢 Share Button -->
-            <button class="btn-action btn-share" onclick="shareAnywhere()">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
-                শেয়ার
-            </button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-            <button class="btn-action btn-copy" id="copyBtn" onclick="copyMyLink()">লিংক কপি করুন 📋</button>
-            <button class="btn-action" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);" onclick="location.reload()">নতুন তৈরি করুন 🔄</button>
-        </div>
+<div class="overlay" id="overlay" onclick="closeBottomSheet()"></div>
+<div class="bottom-sheet" id="sheet" role="dialog" aria-modal="true" aria-label="কার্ড তৈরি করুন">
+  <button class="close-icon" onclick="closeBottomSheet()" aria-label="বন্ধ করুন">&times;</button>
+  <h2 class="sheet-title">কার্ড তৈরি করুন 🎊</h2>
+
+  <div id="formView">
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-occ="eid" onclick="setOccasion('eid')">🌙 ঈদ সালামি</button>
+      <button class="tab" data-occ="bday" onclick="setOccasion('bday')">🎂 জন্মদিন</button>
     </div>
 
-    <script>
-        // URL Parameters setup
-        const urlParams = new URLSearchParams(window.location.search);
-        const senderA = urlParams.get('a');
-        const methodB = urlParams.get('b');
-        const numberC = urlParams.get('c');
-        const receiverD = urlParams.get('d');
-        const bgF = urlParams.get('f');
+    <div class="field">
+      <label for="inputReceiverName" id="lblReceiver">যার কাছে পাঠাবেন <small>(ঐচ্ছিক)</small></label>
+      <input type="text" id="inputReceiverName" class="input-box" maxlength="40" placeholder="তার নাম 🎯">
+    </div>
 
-        // 🟢 Available Backgrounds Map
-        const bgStyles = {
-            'img1': 'linear-gradient(to bottom, rgba(2,11,20,0.65), #020b14 100%), url("https://images.unsplash.com/photo-1564683214965-3619addd900d?q=80&w=1000&auto=format&fit=crop") center/cover no-repeat fixed',
-            'img2': 'linear-gradient(to bottom, rgba(2,11,20,0.65), #020b14 100%), url("https://images.unsplash.com/photo-1596468574169-3232811bd668?q=80&w=1000&auto=format&fit=crop") center/cover no-repeat fixed',
-            'img3': 'linear-gradient(to bottom, rgba(2,11,20,0.5), #020b14 100%), url("https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1000&auto=format&fit=crop") center/cover no-repeat fixed',
-            'img4': 'linear-gradient(to bottom, rgba(0,0,0,0.6), #020b14 100%), url("https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?q=80&w=1000&auto=format&fit=crop") center/cover no-repeat fixed',
-            'img5': 'linear-gradient(to bottom, rgba(0,0,0,0.5), #020b14 100%), url("https://images.unsplash.com/photo-1542382156909-9ae37b3f56fd?q=80&w=1000&auto=format&fit=crop") center/cover no-repeat fixed',
-            'img6': 'linear-gradient(to bottom, rgba(2,11,20,0.7), #020b14 100%), url("https://images.unsplash.com/photo-1590076215667-875d4ef1caaa?q=80&w=1000&auto=format&fit=crop") center/cover no-repeat fixed',
-            'img7': 'linear-gradient(to bottom, rgba(0,0,0,0.65), #020b14 100%), url("https://images.unsplash.com/photo-1617251137884-f135eccf6942?q=80&w=1000&auto=format&fit=crop") center/cover no-repeat fixed',
-            'img8': 'linear-gradient(to bottom, rgba(2,11,20,0.65), #020b14 100%), url("https://images.unsplash.com/photo-1564121211835-e88c852648ab?q=80&w=1000&auto=format&fit=crop") center/cover no-repeat fixed',
-            'img9': 'linear-gradient(to bottom, rgba(0,0,0,0.6), #020b14 100%), url("https://images.unsplash.com/photo-1583089892943-e02e52f1f6c7?q=80&w=1000&auto=format&fit=crop") center/cover no-repeat fixed',
-            'img10': 'linear-gradient(to bottom, rgba(0,0,0,0.7), #020b14 100%), url("https://images.unsplash.com/photo-1572048572861-1b918b958e93?q=80&w=1000&auto=format&fit=crop") center/cover no-repeat fixed',
-            'img11': 'linear-gradient(to bottom, rgba(0,0,0,0.6), #020b14 100%), url("https://images.unsplash.com/photo-1565552643983-4a001ba0ee79?q=80&w=1000&auto=format&fit=crop") center/cover no-repeat fixed',
-            'img12': 'linear-gradient(to bottom, rgba(0,0,0,0.5), #020b14 100%), url("https://images.unsplash.com/photo-1600860368270-e59173f2730e?q=80&w=1000&auto=format&fit=crop") center/cover no-repeat fixed',
-            'img13': 'linear-gradient(to bottom, rgba(2,11,20,0.7), #020b14 100%), url("https://images.unsplash.com/photo-1551043047-1d2adf00f3fd?q=80&w=1000&auto=format&fit=crop") center/cover no-repeat fixed',
-            'img14': 'linear-gradient(to bottom, rgba(0,0,0,0.65), #020b14 100%), url("https://images.unsplash.com/photo-1507608158173-1dcec673a2e5?q=80&w=1000&auto=format&fit=crop") center/cover no-repeat fixed',
-            'img15': 'linear-gradient(to bottom, rgba(0,0,0,0.7), #020b14 100%), url("https://images.unsplash.com/photo-1519817914152-22d216bb9170?q=80&w=1000&auto=format&fit=crop") center/cover no-repeat fixed',
-            'default': 'radial-gradient(circle at 50% -20%, #0a422b 0%, #020b14 70%)',
-            'purple': 'radial-gradient(circle at 50% -20%, #2a044a 0%, #090214 70%)',
-            'gold': 'radial-gradient(circle at 50% -20%, #4a3f04 0%, #141102 70%)'
-        };
+    <div class="field" id="ageField" style="display:none">
+      <label for="inputAge">বয়স <small>(ঐচ্ছিক)</small></label>
+      <input type="number" id="inputAge" class="input-box" inputmode="numeric" min="1" max="120" placeholder="যেমন: 21 🎈">
+    </div>
 
-        let currentBg = 'img1';
-        document.getElementById('mainBg').style.background = bgStyles[currentBg];
+    <div class="field">
+      <label for="inputSenderName">আপনার নাম</label>
+      <input type="text" id="inputSenderName" class="input-box" maxlength="40" placeholder="আপনার নাম লিখুন ✍️">
+      <p class="err" id="errName">আপনার নাম লিখুন</p>
+    </div>
 
-        if (senderA && numberC) {
-            document.getElementById('displayName').innerText = senderA;
-            document.getElementById('displayNumber').innerText = numberC;
-            document.title = `${senderA} এর পক্ষ থেকে একটি সারপ্রাইজ! 🎁✨`;
+    <div class="field">
+      <label for="inputMessage">নিজের মেসেজ <small>(ঐচ্ছিক — না দিলে সুন্দর মেসেজ বসবে)</small></label>
+      <textarea id="inputMessage" class="input-box" maxlength="220" placeholder="মনের কথা লিখুন 💬"></textarea>
+      <div class="counter"><span id="msgCount">0</span>/220</div>
+    </div>
 
-            if (receiverD) {
-                const recEl = document.getElementById('displayReceiver');
-                recEl.innerText = `প্রিয় ${receiverD},`;
-                recEl.style.display = 'block';
-            }
+    <div class="row2">
+      <div class="field">
+        <label for="inputMethod">মাধ্যম</label>
+        <select id="inputMethod" class="input-box">
+          <option value="bKash">বিকাশ (bKash)</option>
+          <option value="Nagad">নগদ (Nagad)</option>
+          <option value="Rocket">রকেট (Rocket)</option>
+          <option value="Upay">উপায় (Upay)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="inputNumber" id="lblNumber">অ্যাকাউন্ট নাম্বার</label>
+        <input type="tel" id="inputNumber" class="input-box" inputmode="numeric" maxlength="11" placeholder="01XXXXXXXXX">
+      </div>
+    </div>
+    <p class="err" id="errNumber" style="margin:-8px 0 12px">নাম্বার ০১ দিয়ে শুরু হবে, মোট ১১ ডিজিট</p>
 
-            const method = methodB || 'bKash';
-            const badge = document.getElementById('displayMethod');
-            if(method === 'bKash') badge.style.background = '#e2136e';
-            else if(method === 'Nagad') badge.style.background = '#ed1c24';
-            else if(method === 'Rocket') badge.style.background = '#8c1590';
-            else if(method === 'Upay') badge.style.background = '#0067b2';
-            badge.innerText = method;
+    <div class="field">
+      <span class="bg-label">থিম বেছে নিন 🎨 <small style="color:#64748b;font-weight:400">(সাথে সাথে প্রিভিউ দেখাবে)</small></span>
+      <div class="bg-scroll-container" id="bgContainer"></div>
+    </div>
 
-            if (bgF && bgStyles[bgF]) {
-                currentBg = bgF;
-                document.getElementById('mainBg').style.background = bgStyles[bgF];
-                
-                document.querySelectorAll('.bg-item').forEach(el => {
-                    el.classList.remove('active');
-                    if(el.getAttribute('data-bg') === bgF) {
-                        el.classList.add('active');
-                        el.scrollIntoView({ behavior: 'smooth', inline: 'center' });
-                    }
-                });
-            }
+    <button class="btn-action btn-generate" onclick="createLink()">লিংক তৈরি করুন 🚀</button>
+  </div>
 
-            setTimeout(() => {
-                confetti({ particleCount: 200, spread: 130, origin: { y: 0.5 }, colors:['#d4af37', '#10b981', '#ef4444', '#ffffff'] });
-            }, 700);
-        }
+  <div id="resultView" class="result-container">
+    <div class="ok-badge">🎉</div>
+    <p class="result-title">আপনার লিংক তৈরি হয়েছে!</p>
+    <div class="generated-url" id="finalLink"></div>
 
-        function selectBg(element) {
-            document.querySelectorAll('.bg-item').forEach(el => el.classList.remove('active'));
-            element.classList.add('active');
-            
-            currentBg = element.getAttribute('data-bg');
-            document.getElementById('mainBg').style.background = bgStyles[currentBg];
-        }
+    <button class="btn-action btn-share" onclick="shareAnywhere()">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+      শেয়ার করুন
+    </button>
+    <div class="share-row">
+      <button class="btn-action btn-wa" onclick="shareTo('wa')">WhatsApp</button>
+      <button class="btn-action btn-tg" onclick="shareTo('tg')">Telegram</button>
+    </div>
+    <button class="btn-action btn-copy" id="copyBtn" onclick="copyMyLink()">লিংক কপি করুন 📋</button>
+    <button class="btn-action btn-ghost" onclick="window.open(globalLink,'_blank')">কার্ড দেখুন 👀</button>
+    <button class="btn-action btn-ghost" onclick="backToForm()">আবার বানান 🔄</button>
+  </div>
+</div>
 
-        function openBottomSheet() {
-            document.getElementById('overlay').classList.add('active');
-            document.getElementById('sheet').classList.add('active');
-        }
-        
-        function closeBottomSheet() {
-            document.getElementById('overlay').classList.remove('active');
-            document.getElementById('sheet').classList.remove('active');
-        }
+<script>
+const $ = id => document.getElementById(id);
+const P = new URLSearchParams(location.search);
 
-        let globalLink = "";
-        
-        function createLink() {
-            const senderName = document.getElementById('inputSenderName').value.trim();
-            const receiverName = document.getElementById('inputReceiverName').value.trim();
-            const method = document.getElementById('inputMethod').value;
-            const num = document.getElementById('inputNumber').value.trim();
-            
-            if(!senderName || !num) { alert('অনুগ্রহ করে আপনার নাম এবং নাম্বার দিন! 🥺'); return; }
+/* ---------- Occasion content ---------- */
+const OCC = {
+  eid: {
+    sub: 'আসসালামু আলাইকুম 🤲💖', hero: ['🌙','🏮','⭐'], bg: 'img1',
+    title: n => `${n} এর পক্ষ থেকে একটি সারপ্রাইজ! 🎁✨`,
+    msg: 'ঈদের আনন্দ তো প্রিয়জনদের ভালোবাসাতেই পূর্ণ হয়! 🥰 তোমার দেওয়া ছোট্ট এই উপহার আমার কাছে তোমার অনেক বড় আশীর্বাদ। 🤲✨ এই ঈদে তোমার সালামির অপেক্ষায় রইলাম... নিরাশ করবে না তো? 🥺💸❤️',
+    wallet: 'সালামি পাঠান 💳', colors: ['#d4af37','#10b981','#ef4444','#ffffff']
+  },
+  bday: {
+    sub: 'শুভ জন্মদিন! 🎉💖', hero: ['🎂','🎈','🎁'], bg: 'bimg1',
+    title: n => `${n} এর পক্ষ থেকে জন্মদিনের শুভেচ্ছা! 🎂✨`,
+    msg: 'আজকের দিনটা শুধু তোমার! 🎉 হাসি, ভালোবাসা আর সুন্দর স্বপ্নে ভরে উঠুক তোমার নতুন বছর। 🌟 আল্লাহ তোমাকে সবসময় সুস্থ ও সুখে রাখুন। 🤲💖 অনেক অনেক শুভ জন্মদিন!',
+    wallet: 'গিফট পাঠাতে চাইলে 🎁', colors: ['#ec4899','#f9a8d4','#d4af37','#ffffff']
+  }
+};
 
-            const baseUrl = window.location.origin + window.location.pathname;
-            const params = new URLSearchParams();
-            
-            params.set('a', senderName);
-            params.set('b', method);
-            params.set('c', num);
-            if(receiverName) params.set('d', receiverName);
-            params.set('f', currentBg);
+/* ---------- Themes (images are auto-checked, broken ones are skipped) ---------- */
+const U = (id, w) => `https://images.unsplash.com/photo-${id}?q=80&w=${w}&auto=format&fit=crop`;
+const FB_EID = 'radial-gradient(circle at 50% -20%, #0a422b 0%, #020b14 70%)';
+const FB_BD  = 'radial-gradient(circle at 50% -20%, #5b0f3a 0%, #14020c 70%)';
+const THEMES = {};
+[
+ '1564683214965-3619addd900d','1596468574169-3232811bd668','1519681393784-d120267933ba','1475274047050-1d0c0975c63e',
+ '1542382156909-9ae37b3f56fd','1590076215667-875d4ef1caaa','1617251137884-f135eccf6942','1564121211835-e88c852648ab',
+ '1583089892943-e02e52f1f6c7','1572048572861-1b918b958e93','1565552643983-4a001ba0ee79','1600860368270-e59173f2730e',
+ '1551043047-1d2adf00f3fd','1507608158173-1dcec673a2e5','1519817914152-22d216bb9170'
+].forEach((id,i) => THEMES['img'+(i+1)] = {o:'eid', id, fb:FB_EID});
+Object.assign(THEMES, {
+  default:{o:'eid', fb:FB_EID},
+  purple: {o:'eid', fb:'radial-gradient(circle at 50% -20%, #2a044a 0%, #090214 70%)'},
+  gold:   {o:'eid', fb:'radial-gradient(circle at 50% -20%, #4a3f04 0%, #141102 70%)'},
+  bimg1:{o:'bday', id:'1530103862676-de8c9debad1d', fb:FB_BD},
+  bimg2:{o:'bday', id:'1464349153735-7db50ed83c84', fb:FB_BD},
+  bimg3:{o:'bday', id:'1513151233558-d860c5398176', fb:FB_BD},
+  bimg4:{o:'bday', id:'1492684223066-81342ee5ff30', fb:FB_BD},
+  bpink:{o:'bday', fb:FB_BD},
+  bsun: {o:'bday', fb:'radial-gradient(circle at 50% -20%, #7a3a05 0%, #140802 70%)'},
+  bsea: {o:'bday', fb:'radial-gradient(circle at 50% -20%, #07506f 0%, #020b14 70%)'},
+  bgrape:{o:'bday', fb:'radial-gradient(circle at 50% -20%, #3b0764 0%, #0b0212 70%)'}
+});
 
-            globalLink = baseUrl + "?" + params.toString();
-            
-            document.getElementById('finalLink').innerText = globalLink;
-            document.getElementById('formView').style.display = 'none';
-            document.getElementById('resultView').style.display = 'block';
-        }
+function probe(url, ms = 6000) {
+  return new Promise(res => {
+    const im = new Image(); let done = false;
+    const end = ok => { if (!done) { done = true; res(ok); } };
+    im.onload = () => end(true); im.onerror = () => end(false);
+    setTimeout(() => end(false), ms); im.src = url;
+  });
+}
 
-        function copyMyLink() {
-            navigator.clipboard.writeText(globalLink).then(() => {
-                const btn = document.getElementById('copyBtn');
-                btn.innerHTML = 'কপি হয়েছে! ✔️';
-                btn.style.background = '#059669';
-                setTimeout(() => { btn.innerHTML = 'লিংক কপি করুন 📋'; btn.style.background = '#3b82f6'; }, 3000);
-            }).catch(err => {
-                const tempInput = document.createElement("input");
-                tempInput.value = globalLink;
-                document.body.appendChild(tempInput);
-                tempInput.select();
-                document.execCommand("copy");
-                document.body.removeChild(tempInput);
-                alert("লিংক কপি হয়েছে! 🎉");
-            });
-        }
+let bgToken = 0, currentBg = null, curOcc = P.get('t') === 'bday' ? 'bday' : 'eid';
 
-        function shareAnywhere() {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'ঈদ সারপ্রাইজ! 🎁✨',
-                    text: 'তোমার জন্য কিছু একটা অপেক্ষা করছে দেখতে লিংকে ক্লিক করো 👇\n\n',
-                    url: globalLink
-                }).catch(err => console.log('Share failed:', err));
-            } else {
-                copyMyLink();
-                alert("আপনার ব্রাউজারে সরাসরি শেয়ার অপশন সাপোর্ট করছে না। লিংকটি কপি করা হয়েছে, আপনি চাইলে এখন যেকোনো জায়গায় পেস্ট করতে পারবেন!");
-            }
-        }
-    </script>
+function applyBg(key) {
+  const t = THEMES[key]; if (!t) return;
+  const el = $('mainBg'), tk = ++bgToken;
+  el.style.background = t.fb;
+  if (!t.id) return;
+  probe(U(t.id, 1000)).then(ok => {
+    if (tk !== bgToken) return;
+    if (ok) el.style.background = `linear-gradient(to bottom, rgba(2,11,20,.6), #020b14 100%), url("${U(t.id,1000)}") center/cover no-repeat`;
+    else dropTheme(key);
+  });
+}
+
+function dropTheme(key) {
+  const item = document.querySelector(`.bg-item[data-bg="${key}"]`);
+  const wasActive = item && item.classList.contains('active');
+  if (item) item.remove();
+  if (wasActive) { const first = document.querySelector('.bg-item'); if (first) selectBg(first); }
+}
+
+function buildPicker(occ, selected) {
+  const box = $('bgContainer'); box.innerHTML = '';
+  Object.keys(THEMES).filter(k => THEMES[k].o === occ).forEach(k => {
+    const t = THEMES[k], d = document.createElement('div');
+    d.className = 'bg-item'; d.dataset.bg = k; d.tabIndex = 0; d.setAttribute('role','button'); d.setAttribute('aria-label','থিম ' + k);
+    d.style.background = t.fb; d.style.backgroundSize = 'cover';
+    d.onclick = () => selectBg(d);
+    d.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectBg(d); } };
+    if (k === selected) d.classList.add('active');
+    box.appendChild(d);
+    if (t.id) probe(U(t.id, 200)).then(ok => {
+      if (ok) d.style.background = `url("${U(t.id,200)}") center/cover`;
+      else dropTheme(k);
+    });
+  });
+  if (!box.querySelector('.active') && box.firstChild) box.firstChild.classList.add('active');
+}
+
+function selectBg(el) {
+  document.querySelectorAll('.bg-item').forEach(x => x.classList.remove('active'));
+  el.classList.add('active');
+  currentBg = el.dataset.bg;
+  applyBg(currentBg);
+  el.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+}
+
+/* ---------- Render card ---------- */
+const toBn = s => String(s).replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+const METHOD_COLORS = {bKash:'#e2136e', Nagad:'#ed1c24', Rocket:'#8c1590', Upay:'#0067b2'};
+
+function renderCard(d) {
+  const O = OCC[d.occ];
+  document.body.dataset.occ = d.occ;
+  $('subtitle').textContent = O.sub;
+  $('heroMain').textContent = O.hero[0]; $('heroL').textContent = O.hero[1]; $('heroR').textContent = O.hero[2];
+  $('displayName').textContent = d.a || 'আপনার নাম';
+  $('displayMessage').textContent = d.m || O.msg;
+
+  const rec = $('displayReceiver');
+  if (d.d) { rec.textContent = `প্রিয় ${d.d},`; rec.style.display = 'block'; } else rec.style.display = 'none';
+
+  const age = parseInt(d.g, 10), pill = $('agePill');
+  if (d.occ === 'bday' && age > 0 && age < 121) { pill.textContent = `🎈 তুমি ${toBn(age)} বছরে পা দিলে!`; pill.style.display = 'block'; }
+  else pill.style.display = 'none';
+
+  const showWallet = d.c || d.demo;
+  $('wallet').style.display = showWallet ? 'block' : 'none';
+  $('walletLabel').textContent = O.wallet;
+  $('displayNumber').textContent = d.c || '01XXXXXXXXX';
+  const method = METHOD_COLORS[d.b] ? d.b : 'bKash', badge = $('displayMethod');
+  badge.style.background = METHOD_COLORS[method]; badge.textContent = method;
+}
+
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+function fireConfetti(big) {
+  if (reduceMotion || typeof confetti !== 'function') return;
+  confetti({particleCount: big ? 200 : 70, spread: big ? 130 : 80, origin:{y: big ? .5 : .45}, colors: OCC[curOcc].colors});
+}
+
+/* ---------- Init ---------- */
+const shared = {
+  occ: curOcc, a: P.get('a'), b: P.get('b'), c: P.get('c'), d: P.get('d'),
+  g: P.get('g'), m: P.get('m'), f: P.get('f')
+};
+const isShared = !!(shared.a && (shared.c || curOcc === 'bday'));
+
+if (isShared) {
+  renderCard(shared);
+  document.title = OCC[curOcc].title(shared.a);
+  currentBg = THEMES[shared.f] ? shared.f : OCC[curOcc].bg;
+  setTimeout(() => fireConfetti(true), 700);
+} else {
+  renderCard({occ: curOcc, demo: true});
+  currentBg = OCC[curOcc].bg;
+}
+applyBg(currentBg);
+$('hero').onclick = () => fireConfetti(false);
+
+/* ---------- Sheet ---------- */
+function openBottomSheet() {
+  if (!$('bgContainer').children.length) buildPicker(curOcc, currentBg);
+  syncForm();
+  $('overlay').classList.add('active'); $('sheet').classList.add('active');
+}
+function closeBottomSheet() { $('overlay').classList.remove('active'); $('sheet').classList.remove('active'); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBottomSheet(); });
+
+function setOccasion(occ) {
+  curOcc = occ;
+  document.body.dataset.occ = occ;
+  currentBg = OCC[occ].bg;
+  buildPicker(occ, currentBg);
+  applyBg(currentBg);
+  syncForm();
+  if (!isShared) renderCard({occ, demo: true});
+}
+
+function syncForm() {
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.occ === curOcc));
+  const bd = curOcc === 'bday';
+  $('ageField').style.display = bd ? 'block' : 'none';
+  $('lblReceiver').innerHTML = (bd ? 'যার জন্মদিন' : 'যার কাছে পাঠাবেন') + ' <small>(ঐচ্ছিক)</small>';
+  $('lblNumber').innerHTML = bd ? 'নাম্বার <small>(ঐচ্ছিক)</small>' : 'অ্যাকাউন্ট নাম্বার';
+  $('inputMessage').placeholder = bd ? 'জন্মদিনের শুভেচ্ছা লিখুন 💬' : 'মনের কথা লিখুন 💬';
+}
+
+$('inputMessage').addEventListener('input', e => { $('msgCount').textContent = e.target.value.length; });
+
+/* ---------- Link creation ---------- */
+let globalLink = '';
+const validNum = n => /^01\d{9}$/.test(n);
+
+function showErr(inputId, errId, on) {
+  $(inputId).classList.toggle('bad', on); $(errId).style.display = on ? 'block' : 'none';
+}
+
+function createLink() {
+  const bd = curOcc === 'bday';
+  const sender = $('inputSenderName').value.trim();
+  const receiver = $('inputReceiverName').value.trim();
+  const method = $('inputMethod').value;
+  const num = $('inputNumber').value.replace(/\D/g, '');
+  const msg = $('inputMessage').value.trim();
+  const age = $('inputAge').value.trim();
+
+  const nameBad = !sender;
+  const numBad = bd ? (num !== '' && !validNum(num)) : !validNum(num);
+  showErr('inputSenderName', 'errName', nameBad);
+  showErr('inputNumber', 'errNumber', numBad);
+  if (nameBad || numBad) { toast('ঘরগুলো ঠিক করে নিন 🥺'); return; }
+
+  const p = new URLSearchParams();
+  p.set('t', curOcc); p.set('a', sender); p.set('b', method);
+  if (num) p.set('c', num);
+  if (receiver) p.set('d', receiver);
+  if (bd && age) p.set('g', age);
+  if (msg) p.set('m', msg);
+  p.set('f', currentBg);
+
+  globalLink = location.origin + location.pathname + '?' + p.toString();
+  $('finalLink').textContent = globalLink;
+  $('formView').style.display = 'none';
+  $('resultView').style.display = 'block';
+  $('sheet').scrollTop = 0;
+  fireConfetti(false);
+}
+
+function backToForm() { $('resultView').style.display = 'none'; $('formView').style.display = 'block'; }
+
+/* ---------- Copy / Share ---------- */
+function toast(t) {
+  const el = $('toast'); el.textContent = t; el.classList.add('show');
+  clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove('show'), 2400);
+}
+
+function copyText(text, okMsg) {
+  const fallback = () => {
+    const i = document.createElement('input'); i.value = text; document.body.appendChild(i);
+    i.select(); try { document.execCommand('copy'); } catch (e) {} document.body.removeChild(i); toast(okMsg);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(() => toast(okMsg)).catch(fallback);
+  else fallback();
+}
+
+function copyMyLink() {
+  copyText(globalLink, 'লিংক কপি হয়েছে! 🎉');
+  const b = $('copyBtn'); b.textContent = 'কপি হয়েছে ✔️'; b.style.background = '#059669';
+  setTimeout(() => { b.textContent = 'লিংক কপি করুন 📋'; b.style.background = ''; }, 2500);
+}
+
+const shareText = () => curOcc === 'bday' ? 'তোমার জন্য জন্মদিনের একটা সারপ্রাইজ আছে 🎂 দেখতে লিংকে ক্লিক করো 👇' : 'তোমার জন্য কিছু একটা অপেক্ষা করছে, দেখতে লিংকে ক্লিক করো 👇';
+
+function shareAnywhere() {
+  if (navigator.share) navigator.share({title: OCC[curOcc].title('আমার'), text: shareText(), url: globalLink}).catch(() => {});
+  else { copyMyLink(); }
+}
+
+function shareTo(where) {
+  const t = encodeURIComponent(shareText() + '\n'), u = encodeURIComponent(globalLink);
+  const url = where === 'wa' ? `https://wa.me/?text=${t}${u}` : `https://t.me/share/url?url=${u}&text=${t}`;
+  window.open(url, '_blank');
+}
+
+/* Tap number to copy */
+const walletEl = $('wallet');
+const copyNumber = () => { const n = $('displayNumber').textContent; if (/^\d+$/.test(n)) copyText(n, 'নাম্বার কপি হয়েছে! 📋'); };
+walletEl.onclick = copyNumber;
+walletEl.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyNumber(); } };
+</script>
 </body>
 </html>
